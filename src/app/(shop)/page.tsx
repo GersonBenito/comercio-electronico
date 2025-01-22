@@ -1,10 +1,11 @@
-import { Banner, Button, Footer, ProductGrid, Title } from "@/components";
+import { Banner, Button, ProductGrid, Title } from "@/components";
 import { font } from "@/config/font";
 import { initialData } from "@/dummy/dummy";
 import styles from './page.module.css';
 
 // Data dummy
 const products = initialData.products.slice(0, 10);
+
 
 export default function Home() {
   return (
@@ -15,7 +16,6 @@ export default function Home() {
       <div className="align-center mt-3 mb-3">
         <Button label="Mostrar mas" type="outline-primary" />
       </div>
-      <Footer />
     </div>
   );
 }

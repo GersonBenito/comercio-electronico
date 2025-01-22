@@ -4,7 +4,7 @@ import { Button } from '@/components';
 
 export const Discover = () => {
   return (
-    <div className={`${font} ${styles.wrapper_discover}`}>
+    <div className={`${font.className} ${styles.wrapper_discover}`}>
         <div className={styles.discover}>
           <h4 className={`${styles.label} regular-body`}>Recién llegado</h4>
           <h1>Descubra nuestra nueva colección</h1>

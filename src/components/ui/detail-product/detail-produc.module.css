@@ -1,0 +1,44 @@
+.wrapper_details h1{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.wrapper_details h2{
+    font-size: 24px;
+    font-weight: 500;
+    color: #9F9F9F;
+}
+
+.wrapper_details .aditional_info h2{
+    font-size: 16px;
+    font-weight: 500;
+    color: #9F9F9F;
+    margin-bottom: 8px;
+}
+
+.aditional_info {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #D9D9D9;
+    display: flex;
+    gap: 16px;
+}
+
+.wrapper_details .rating{
+    display: flex;
+    color: #9F9F9F;
+    align-items: center;
+    gap: 16px;
+}
+
+.wrapper_details .rating p{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.wrapper_details .product_actions{
+    display: flex;
+    justify-items: center;
+    gap: 16px;
+}
+

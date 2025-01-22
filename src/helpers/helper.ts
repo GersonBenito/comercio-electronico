@@ -25,3 +25,13 @@ export const getYear = (): number =>{
     const date = new Date();
     return date.getFullYear();
 }
+
+/**
+ * Funcion para reemplazar caracteres especiales y numeros
+ * @param value datos al que se le hara el replace
+ * @returns nuevo valor sin caracteres especiales y numeros
+ */
+export const replaceCharactersAndNumbers = (value: string): string => {
+    const regex =  /[^a-zA-Z]/g;
+    return value.replace(regex,'');
+}

@@ -11,3 +11,6 @@ export * from './ui/cart/Cart';
 export * from './ui/products/product-grid/ProductGrid';
 export * from './ui/products/product-grid/ProductItem';
 export * from './ui/footer/Footer';
+export * from './ui/viewer-images/ViewerImages';
+export * from './ui/card-image/CardImage';
+export * from './ui/detail-product/DetailProduct';

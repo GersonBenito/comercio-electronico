@@ -1,0 +1,20 @@
+.wrapper_viewer_images{
+    display: flex;
+    gap: 24px;
+}
+
+/* .wrapper_viewer_images .view_image{
+    background: #f9f1e7;
+    padding: 64px 16px;
+    border-radius: 10px;
+} */
+
+.list_images{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.content_list_image{
+
+}

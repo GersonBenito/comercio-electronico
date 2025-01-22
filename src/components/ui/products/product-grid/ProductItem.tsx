@@ -20,7 +20,7 @@ export const ProductItem = ({product}:Props) => {
 
   return (
     <div 
-      className={`${font} ${styles.content_product}`}
+      className={`${font.className} ${styles.content_product}`}
       onMouseEnter={ ()=> setHover('show_hover') }
       onMouseLeave={ ()=> setHover('hidden_hover') }
     >
@@ -47,7 +47,7 @@ export const ProductItem = ({product}:Props) => {
             </Link>
           </div>
           <div className={styles.text_icon}>
-            <Link href="/share">
+            <Link href={`/product/${product.id}`}>
               <Image src="/assets/svg/detail.svg" alt="detail" width={16} height={16} />
               Detalles
             </Link>

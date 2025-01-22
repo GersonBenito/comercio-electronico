@@ -6,30 +6,30 @@ import { LinkMenu } from '@/interfaces';
 
 export const Footer = () => {
   const links: LinkMenu[] = [
-      {
-        label: 'Inicio',
-        url: '/'
-      },
-      {
-        label: 'Tienda',
-        url: '/'
-      },
-      {
-        label: 'Electrónica',
-        url: '/'
-      },
-      {
-        label: 'Joyería',
-        url: '/'
-      },
-      {
-        label: 'Ropa de hombre',
-        url: '/'
-      },
-      {
-        label: 'Ropa de mujer',
-        url: '/'
-      },
+    {
+      label: 'Inicio',
+      url: '/'
+    },
+    {
+      label: 'Tienda',
+      url: '/products'
+    },
+    {
+      label: 'Electrónica',
+      url: '/category/electronics'
+    },
+    {
+      label: 'Joyería',
+      url: '/category/jewelery'
+    },
+    {
+      label: 'Ropa de hombre',
+      url: '/category/men\'s clothing'
+    },
+    {
+      label: 'Ropa de mujer',
+      url: '/category/women\'s clothing'
+    },
   ];
 
   const linksHelp: LinkMenu[] = [
@@ -38,11 +38,7 @@ export const Footer = () => {
         url: '/'
       },
       {
-        label: 'Tienda',
-        url: '/'
-      },
-      {
-        label: 'Reenbolsos',
+        label: 'Reembolsos',
         url: '/'
       },
       {

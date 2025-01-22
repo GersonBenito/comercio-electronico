@@ -1,0 +1,9 @@
+.wrapper_card_image{
+    background: #f9f1e7;
+    padding: 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

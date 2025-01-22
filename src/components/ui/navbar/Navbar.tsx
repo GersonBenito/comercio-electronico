@@ -13,28 +13,28 @@ export const Navbar = () => {
     },
     {
       label: 'Tienda',
-      url: '/'
+      url: '/products'
     },
     {
       label: 'Electrónica',
-      url: '/'
+      url: '/category/electronics'
     },
     {
       label: 'Joyería',
-      url: '/'
+      url: '/category/jewelery'
     },
     {
       label: 'Ropa de hombre',
-      url: '/'
+      url: '/category/men\'s clothing'
     },
     {
       label: 'Ropa de mujer',
-      url: '/'
+      url: '/category/women\'s clothing'
     },
   ];
   return (
     <nav className={`
-      ${font},
+      ${font.className},
       ${styles.wrapper_navbar}
     `}>
         <Link href="/">
