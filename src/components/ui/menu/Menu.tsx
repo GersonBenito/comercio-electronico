@@ -1,12 +1,14 @@
 import { font } from "@/config/font"
 import Link from "next/link"
 import styles from './menu.module.css';
+import { LinkMenu } from "@/interfaces";
 
 interface Props {
   orientation?: string
+  links: LinkMenu[]
 }
 
-export const Menu = ({orientation = 'horizontal'}: Props) => {
+export const Menu = ({orientation = 'horizontal', links}: Props) => {
   return (
     <div 
       className={`
@@ -16,12 +18,11 @@ export const Menu = ({orientation = 'horizontal'}: Props) => {
         regular-body`
       }
     >
-      <Link href="/">Inicio</Link>
-      <Link href="/">Tienda</Link>
-      <Link href="/">Electrónica</Link>
-      <Link href="/">Joyería</Link>
-      <Link href="/">Ropa de hombre</Link>
-      <Link href="/">Ropa de mujer</Link>
+      {
+        links.map(link => (
+          <Link key={link.label} href={link.url}>{link.label}</Link>
+        ))
+      }
     </div>
   )
 }

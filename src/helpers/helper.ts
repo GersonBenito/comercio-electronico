@@ -1,5 +1,5 @@
 /**
- * Metodo para transformar un numero u monto en formato de moneda
+ * Funcion para transformar un numero u monto en formato de moneda
  * @param value monto o valor a transformar
  * @param locale tipo de locale a transformar, por defecto cuenta con en-US 
  * @param currency tipo moneda a usar o transformar, por defecto es USD
@@ -15,4 +15,13 @@ export const transformAmount = (value: number | string, locale = 'en-US', curren
         minimumFractionDigits: 2,
     });
     return formatter.format(amount);
+}
+
+/**
+ * Funcion para obtener el año actual
+ * @returns retorn el año actual
+ */
+export const getYear = (): number =>{
+    const date = new Date();
+    return date.getFullYear();
 }
