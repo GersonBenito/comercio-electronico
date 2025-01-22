@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 interface Props {
     params: {
         id: string;
@@ -6,6 +8,10 @@ interface Props {
 
 export default function({params}: Props) {
     const { id } = params;
+    // TODO: agregar 
+    if(id === 'test'){
+        notFound();
+    }
     return (
         <div>Categoria: {id}</div>
     );

@@ -1,0 +1,10 @@
+.wrapper_logo{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wrapper_logo .name {
+    font-size: 16px;
+    font-weight: 600;
+}

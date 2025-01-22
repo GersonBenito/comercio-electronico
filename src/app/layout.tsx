@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../styles/globals.css";
 import { font } from "@/config/font";
 
 
 export const metadata: Metadata = {
-  title: "Ecomerce",
+  title: "eCommerce",
   description: "Tienda en linea de productos",
 };
 

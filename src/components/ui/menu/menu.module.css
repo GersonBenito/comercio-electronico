@@ -1,0 +1,16 @@
+.menu{
+    display: flex;
+    gap: 16px;
+}
+
+.horizontal {
+    justify-content: center;
+    align-items: center;
+}
+
+.vertical {
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}

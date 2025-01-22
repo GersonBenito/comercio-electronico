@@ -1,0 +1,12 @@
+.wrapper_banner{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.wrapper_banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
