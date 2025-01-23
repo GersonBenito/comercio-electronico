@@ -13,9 +13,10 @@ interface Props {
     }
 }
 
-export default function({params}: Props) {
-    const id = replaceCharactersAndNumbers(params.id);
-    const products = dummyProducts.filter(product => replaceCharactersAndNumbers(product.category) === id);
+export default async function({params}: Props) {
+    const { id } = await params;
+    const categoryId = replaceCharactersAndNumbers(id);
+    const products = dummyProducts.filter(product => replaceCharactersAndNumbers(product.category) === categoryId);
 
     const label = {
         'electronics': 'Electrónica',
@@ -30,7 +31,7 @@ export default function({params}: Props) {
     // }
     return (
         <div className={`${font.className} ${styles.wrapper_category} mb-4`}>
-            <Title title={`Artículos de ${(label as any)[id]}`} className="align-center mt-2 mb-2"/>
+            <Title title={`Artículos de ${(label as any)[categoryId]}`} className="align-center mt-2 mb-2"/>
             <ProductGrid products={products} />
         </div>
     );

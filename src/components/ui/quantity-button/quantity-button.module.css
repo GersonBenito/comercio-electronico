@@ -1,0 +1,25 @@
+.wrapper_quantity_button{
+    padding: 12px 10px;
+    border-radius: 4px;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #000000;
+}
+.wrapper_quantity_button span{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+
+.wrapper_quantity_button button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.wrapper_quantity_button button:disabled {
+    cursor: no-drop;
+}

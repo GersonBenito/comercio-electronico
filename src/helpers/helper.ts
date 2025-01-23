@@ -1,3 +1,5 @@
+import { Product } from "@/interfaces";
+
 /**
  * Funcion para transformar un numero u monto en formato de moneda
  * @param value monto o valor a transformar
@@ -34,4 +36,29 @@ export const getYear = (): number =>{
 export const replaceCharactersAndNumbers = (value: string): string => {
     const regex =  /[^a-zA-Z]/g;
     return value.replace(regex,'');
+}
+
+/**
+ * Funcion para desordenar elementos de un arreglo
+ * @param products lista de productos recibido
+ * @returns lista de desordenada de productos
+ */
+export const shuffleArray = (products: Product[]): Product[] =>{
+    for(let i = products.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (1 + 1));
+        [products[i], products[j]] = [products[j], products[i]]; // intercambio de elementos en el arreglo
+    }
+    return products;
+}
+
+/**
+ * Funcion para truncar decimales sin aproximarlo
+ * @param number numero con decimal al que se quiere truncar
+ * @param decimals cantida de decimales a remover, por defecto es 0
+ * @returns numero con decimales truncados
+ */
+export const truncateToFixed = (number: number, decimals: number = 0): number => {
+    const factor = Math.pow(10, decimals);
+    const truncateNumber = (Math.trunc(number * factor) / factor).toFixed(decimals);
+    return parseFloat(truncateNumber);
 }

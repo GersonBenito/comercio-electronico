@@ -58,11 +58,11 @@ export const Footer = () => {
         </div>
         <div className={styles.section_links}>
           <div className={styles.links}>
-            <p>Links</p>
+            <p>Enlaces</p>
             <Menu orientation="vertical" links={links}/>
           </div>
           <div className={styles.links}>
-            <p>Help</p>
+            <p>Ayuda</p>
             <Menu orientation="vertical" links={linksHelp}/>
           </div>
         </div>

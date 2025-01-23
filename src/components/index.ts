@@ -14,3 +14,7 @@ export * from './ui/footer/Footer';
 export * from './ui/viewer-images/ViewerImages';
 export * from './ui/card-image/CardImage';
 export * from './ui/detail-product/DetailProduct';
+export * from './ui/size/Size';
+export * from './ui/color/Color';
+export * from './ui/quantity-button/QuantityButton';
+export * from './ui/rating/Rating';

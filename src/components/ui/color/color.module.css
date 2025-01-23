@@ -1,0 +1,25 @@
+.wrapper_color p{
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: #9F9F9F;
+}
+
+.wrapper_color .list_color {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.wrapper_color .list_color button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.wrapper_color .list_color .selected{
+    border: 2px solid #E97171;
+}

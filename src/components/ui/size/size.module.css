@@ -1,0 +1,33 @@
+.wrapper_size p{
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: #9F9F9F;
+}
+
+.wrapper_size button{
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    padding: 12px 13px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.wrapper_size .select{
+    background: #B88E2F;
+    color: #FFFFFF;
+}
+
+.wrapper_size .unselect{
+    background: #F9F1E7;
+    color: #000000;
+}
+
+.wrapper_size .list_size{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}

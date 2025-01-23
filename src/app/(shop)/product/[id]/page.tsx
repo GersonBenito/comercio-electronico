@@ -1,9 +1,9 @@
 import { initialData } from "@/dummy/dummy";
-import { Product } from "@/interfaces";
 import { notFound } from "next/navigation";
 import styles from './product.module.css';
 import { font } from "@/config/font";
-import { ViewerImages, DetailProduct } from "@/components";
+import { ViewerImages, DetailProduct, Title, ProductGrid, Button } from "@/components";
+import { shuffleArray } from "@/helpers";
 
 interface Props {
     params: {
@@ -11,16 +11,28 @@ interface Props {
     }
 }
 
-export default function({params}: Props) {
-    const id = parseInt(params.id);
-    const product = initialData.products.find( product => product.id === id);
+export default async function ({params}: Props) {
+    const { id } = await params;
+
+    // Data dummy
+    const product = initialData.products.find( product => product.id === parseInt(id));
+    const products = shuffleArray(initialData.products).slice(0,4);
     if(!product){
         notFound();
     }
     return (
         <div className={`${font.className} ${styles.wrapper_product}`}>
-            <ViewerImages product={product} />
-            <DetailProduct product={product} />
+            <div className={`${styles.section_detail_product}`}>
+                <ViewerImages product={product} />
+                <DetailProduct product={product} />
+            </div>
+            <div className={`${styles.related_products}`}>
+                <Title title="Productos relacionados" className="align-center mb-2" />
+                <ProductGrid products={products} />
+                <div className="align-center mt-3 mb-1">
+                    <Button label="Mostrar mas" type="outline-primary" />
+                </div>
+            </div>
         </div>
     );
 }
