@@ -1,6 +1,6 @@
 import { font } from '@/config/font';
 import styles from './discover.module.css';
-import { Button } from '@/components';
+import Button from '@/components/ui/button/Button';
 
 export const Discover = () => {
   return (
@@ -13,7 +13,12 @@ export const Discover = () => {
             con diseños exclusivos que combinan estilo, 
             confort y las últimas tendencias. ¡No te lo pierdas!
           </p>
-          <Button type="primary" label="Comprar ahora" />
+          <Button 
+            type="primary" 
+            label="Comprar ahora" 
+            isRedirect={true}
+            link="/products"
+          />
         </div>
     </div>
   )

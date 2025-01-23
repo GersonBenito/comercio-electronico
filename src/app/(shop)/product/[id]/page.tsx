@@ -2,7 +2,8 @@ import { initialData } from "@/dummy/dummy";
 import { notFound } from "next/navigation";
 import styles from './product.module.css';
 import { font } from "@/config/font";
-import { ViewerImages, DetailProduct, Title, ProductGrid, Button } from "@/components";
+import { ViewerImages, DetailProduct, Title, ProductGrid } from "@/components";
+import Button from '@/components/ui/button/Button';
 import { shuffleArray } from "@/helpers";
 
 interface Props {
@@ -30,7 +31,12 @@ export default async function ({params}: Props) {
                 <Title title="Productos relacionados" className="align-center mb-2" />
                 <ProductGrid products={products} />
                 <div className="align-center mt-3 mb-1">
-                    <Button label="Mostrar mas" type="outline-primary" />
+                    <Button 
+                        label="Mostrar mas" 
+                        type="outline-primary" 
+                        isRedirect={true}
+                        link="/products"
+                    />
                 </div>
             </div>
         </div>

@@ -1,7 +1,8 @@
 import { font } from "@/config/font";
 import styles from "./cart.module.css";
 import { initialData } from "@/dummy/dummy";
-import { Button, Table, Title } from "@/components";
+import { Table, Title } from "@/components";
+import Button from '@/components/ui/button/Button';
 import { getTotalPrice, transformAmount } from "@/helpers";
 
 // Data dummy
@@ -24,7 +25,13 @@ export default function() {
                         <h4>Total</h4>
                         <p>{transformAmount(getTotalPrice(cart))}</p>
                     </div>
-                    <Button label="Check Out" type="outline-secondary" className={styles.button_transparent}/>
+                    <Button 
+                        label="Check Out" 
+                        type="outline-secondary" 
+                        className={styles.button_transparent}
+                        isRedirect={true}
+                        link="/checkout"
+                    />
                 </div>
             </div>
         </div>

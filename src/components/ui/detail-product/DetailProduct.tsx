@@ -2,7 +2,7 @@ import { font } from '@/config/font';
 import styles from './detail-produc.module.css';
 import { Product } from '@/interfaces';
 import { replaceCharactersAndNumbers, transformAmount } from '@/helpers';
-import { Button } from '@/components';
+import Button from '@/components/ui/button/Button';
 import Size from '@/components/ui/size/Size';
 import Color from '@/components/ui/color/Color';
 import QuantityButton from '@/components/ui/quantity-button/QuantityButton';

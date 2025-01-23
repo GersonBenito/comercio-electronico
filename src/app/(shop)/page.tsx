@@ -1,4 +1,5 @@
-import { Banner, Button, ProductGrid, Title } from "@/components";
+import { Banner, ProductGrid, Title } from "@/components";
+import Button from '@/components/ui/button/Button';
 import { font } from "@/config/font";
 import { initialData } from "@/dummy/dummy";
 import styles from './page.module.css';
@@ -14,7 +15,12 @@ export default function Home() {
       <Title title="Nuestros productos" className="align-center mt-2"/>
       <ProductGrid products={products} className={styles.section_product}/>
       <div className="align-center mt-3 mb-3">
-        <Button label="Mostrar mas" type="outline-primary" />
+        <Button 
+          label="Mostrar mas" 
+          type="outline-primary" 
+          isRedirect={true}
+          link="/products"
+        />
       </div>
     </div>
   );

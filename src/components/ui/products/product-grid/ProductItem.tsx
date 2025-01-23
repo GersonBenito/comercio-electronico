@@ -6,7 +6,7 @@ import styles from './product-grid.module.css';
 import Image from "next/image";
 import { transformAmount } from "@/helpers";
 import { useState } from "react";
-import { Button } from "@/components";
+import Button from '@/components/ui/button/Button';
 import { font } from "@/config/font";
 import Link from "next/link";
 
