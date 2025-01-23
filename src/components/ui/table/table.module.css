@@ -1,0 +1,30 @@
+.wrapper_table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.wrapper_table table thead{
+    background: #F9F1E7;
+    margin-bottom: 24px;
+}
+
+.wrapper_table table thead th{
+    padding: 16px 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 0.1px;
+}
+
+.wrapper_table table tbody tr .custom_content{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 16px 0px;
+    color: #9F9F9F;
+    font-weight: 400;
+}
+
+.wrapper_table table tbody tr:hover{
+    background: #F4F5F7;
+}

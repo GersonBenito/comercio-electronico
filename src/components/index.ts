@@ -18,3 +18,4 @@ export * from './ui/size/Size';
 export * from './ui/color/Color';
 export * from './ui/quantity-button/QuantityButton';
 export * from './ui/rating/Rating';
+export * from './ui/table/Table';

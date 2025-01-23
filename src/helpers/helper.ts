@@ -62,3 +62,14 @@ export const truncateToFixed = (number: number, decimals: number = 0): number =>
     const truncateNumber = (Math.trunc(number * factor) / factor).toFixed(decimals);
     return parseFloat(truncateNumber);
 }
+
+/**
+ * Funcion para sumar el precio de cada producto del arreglo
+ * @param products lista de productos del cual se realizara la suma de los precios 
+ * @returns precio toal de los productos del arreglo
+ */
+export const getTotalPrice = (products: Product[]): number => {
+    // TODO: Agregar la cantidad de productos a sumar (product.price * product.quantity)
+    // return products.reduce((accumulator, product) => (accumulator + (product.price * product.quantity)), 0)
+    return products.reduce((accumulator, product) => (accumulator + product.price), 0)
+};

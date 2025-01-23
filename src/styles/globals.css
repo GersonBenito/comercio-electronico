@@ -52,6 +52,10 @@ a {
   text-align: center;
 }
 
+.align-start{
+  text-align: start;
+}
+
 /* Margin top */
 .mt-1{
   margin-top: 8px;
@@ -103,7 +107,7 @@ a {
   padding-top: 32px;
 }
 
-/* Margin bottom */
+/* Padding bottom */
 .pb-1{
   padding-bottom: 8px;
 }
@@ -118,6 +122,40 @@ a {
 
 .pb-4{
   padding-bottom: 32px;
+}
+
+/* Padding left */
+.pl-1{
+  padding-left: 8px;
+}
+
+.pl-2{
+  padding-left: 16px;
+}
+
+.pl-3{
+  padding-left: 24px;
+}
+
+.pl-4{
+  padding-left: 32px;
+}
+
+/* Padding left */
+.pr-1{
+  padding-right: 8px;
+}
+
+.pr-2{
+  padding-right: 16px;
+}
+
+.pr-3{
+  padding-right: 24px;
+}
+
+.pr-4{
+  padding-right: 32px;
 }
 
 .text-wrap{
