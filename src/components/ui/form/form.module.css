@@ -1,0 +1,42 @@
+.wrapper_form h2{
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+}
+
+.wrapper_form form .form_control{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.wrapper_form form .full_name{
+    display: flex;
+    gap: 16px;
+}
+
+.wrapper_form form .form_control label{
+    font-weight: 500;
+    margin-left: 8px;
+    margin-bottom: 8px;
+}
+
+.wrapper_form form .form_control input,
+.wrapper_form form .form_control textarea,
+.wrapper_form form .form_control select{
+    border: 1px solid #9F9F9F;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 8px;
+}
+
+.wrapper_form form .form_control input:focus,
+.wrapper_form form .form_control textarea:focus{
+    border: 1px solid #b88e2f9c;
+}
+
+.wrapper_form form .form_control input::placeholder,
+.wrapper_form form .form_control textarea::placeholder{
+    color: #9F9F9F;
+}

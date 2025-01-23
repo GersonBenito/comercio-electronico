@@ -19,3 +19,5 @@ export * from './ui/color/Color';
 export * from './ui/quantity-button/QuantityButton';
 export * from './ui/rating/Rating';
 export * from './ui/table/Table';
+export * from './ui/form/Form';
+export * from './ui/type-payment/TypePyment';

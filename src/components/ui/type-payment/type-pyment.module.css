@@ -1,0 +1,29 @@
+.wrapper_type_payment .type_payment .payment .select_payment{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.wrapper_type_payment .type_payment .payment .bullet{
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.selected{
+    background: #000;
+}
+
+.wrapper_type_payment .type_payment .payment h3{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.wrapper_type_payment .type_payment .payment p{
+    font-size: 15px;
+    font-weight: 300;
+    color: #9F9F9F;
+}

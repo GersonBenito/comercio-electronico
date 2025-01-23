@@ -6,7 +6,7 @@ import Button from '@/components/ui/button/Button';
 import { getTotalPrice, transformAmount } from "@/helpers";
 
 // Data dummy
-const cart = initialData.products.slice(5, 8);
+const cart = initialData.products.slice(0, 3);
 
 export default function() {
     const tableTitles = ['Producto', 'Precio', 'Cantidad', 'Subtotal'];
