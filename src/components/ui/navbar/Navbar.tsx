@@ -5,34 +5,10 @@ import Link from "next/link";
 import styles from './navbar.module.css';
 import { font } from "@/config/font";
 import { LinkMenu } from "@/interfaces";
+import { MAIN_MENU } from "@/constants/menus";
 
 export const Navbar = () => {
-  const links: LinkMenu[] = [
-    {
-      label: 'Inicio',
-      url: '/'
-    },
-    {
-      label: 'Tienda',
-      url: '/products'
-    },
-    {
-      label: 'Electrónica',
-      url: '/category/electronics'
-    },
-    {
-      label: 'Joyería',
-      url: '/category/jewelery'
-    },
-    {
-      label: 'Ropa de hombre',
-      url: '/category/men\'s clothing'
-    },
-    {
-      label: 'Ropa de mujer',
-      url: '/category/women\'s clothing'
-    },
-  ];
+  const links: LinkMenu[] = MAIN_MENU;
   return (
     <nav className={`
       ${font.className},

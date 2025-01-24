@@ -3,49 +3,11 @@ import styles from './footer.module.css';
 import { getYear } from '@/helpers';
 import { Logo, Menu } from '@/components';
 import { LinkMenu } from '@/interfaces';
+import { MAIN_MENU, MENU_HELP } from '@/constants/menus';
 
 export const Footer = () => {
-  const links: LinkMenu[] = [
-    {
-      label: 'Inicio',
-      url: '/'
-    },
-    {
-      label: 'Tienda',
-      url: '/products'
-    },
-    {
-      label: 'Electrónica',
-      url: '/category/electronics'
-    },
-    {
-      label: 'Joyería',
-      url: '/category/jewelery'
-    },
-    {
-      label: 'Ropa de hombre',
-      url: '/category/men\'s clothing'
-    },
-    {
-      label: 'Ropa de mujer',
-      url: '/category/women\'s clothing'
-    },
-  ];
-
-  const linksHelp: LinkMenu[] = [
-      {
-        label: 'Opciones de pago',
-        url: '/'
-      },
-      {
-        label: 'Reembolsos',
-        url: '/'
-      },
-      {
-        label: 'Politicas de privacida',
-        url: '/'
-      }
-  ];
+  const links: LinkMenu[] = MAIN_MENU;
+  const linksHelp: LinkMenu[] = MENU_HELP;
   return (
     <footer className={`
       ${font.className}

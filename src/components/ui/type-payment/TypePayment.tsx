@@ -5,25 +5,19 @@ import styles from "./type-payment.module.css";
 import { TypePayment as Payment} from "@/interfaces/type-pyment";
 import { useState } from "react";
 import Payments from "@/components/ui/type-payment/Payments";
+import { complementData } from "@/libs/utils/complement-data";
 
 interface Props {
   typePayments: Payment[]
 }
 
-// Data dummy, debido a que no se cuenta con una API que retorne 
-// los tipos de procesadores de pago se usara data dummy a modo de prueba
-const typesPaymentProcessors = [
-  {
-    brand: 'VISA',
-    icon: 'visa',
-    cardNumber: '577551756017'
-  },
-  {
-    brand: 'PayPal',
-    icon: 'paypal',
-    cardNumber: '323976338104'
-  }
-];
+/**
+ * Para los tipos de procesadores de pago se usara data estatico
+ * debido a que la API que se esta consumiento no dispone de estos datos,
+ * en caso de disponer con una API que cuente con todos los datos 
+ * la variable almacenaria los datos obtenidos desde la API
+ */
+const typesPaymentProcessors = complementData.typesPaymentProcessors;
 
 const TypePyment = ({typePayments}: Props) => {
   const [select, setSelect] = useState<number | string>(1);

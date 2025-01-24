@@ -1,14 +1,13 @@
 import { Banner, ProductGrid, Title } from "@/components";
 import Button from '@/components/ui/button/Button';
 import { font } from "@/config/font";
-import { initialData } from "@/dummy/dummy";
 import styles from './page.module.css';
+import { getProductsByLimit } from "@/libs/api/products";
 
-// Data dummy
-const products = initialData.products.slice(0, 10);
-
-
-export default function Home() {
+export default async function Home() {
+  // obtener productos con limite de 10
+  const products = await getProductsByLimit(10);
+  
   return (
     <div className={font.className}>
       <Banner />

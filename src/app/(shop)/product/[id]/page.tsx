@@ -1,10 +1,10 @@
-import { initialData } from "@/dummy/dummy";
 import { notFound } from "next/navigation";
 import styles from './product.module.css';
 import { font } from "@/config/font";
 import { ViewerImages, DetailProduct, Title, ProductGrid } from "@/components";
 import Button from '@/components/ui/button/Button';
 import { shuffleArray } from "@/helpers";
+import { getProductById, getProductsByCategory } from "@/libs/api/products";
 
 interface Props {
     params: {
@@ -13,14 +13,25 @@ interface Props {
 }
 
 export default async function ({params}: Props) {
+    // obtener id enviado por medio de la url
     const { id } = await params;
 
-    // Data dummy
-    const product = initialData.products.find( product => product.id === parseInt(id));
-    const products = shuffleArray(initialData.products).slice(0,4);
+    // Obtener los detalles del producto seleccionado
+    const product = await getProductById(id);
+
+    // En caso de que no se encuentre el producto se presenta la pagina 404 
+    // se corta el flujo de ejecucion
     if(!product){
         notFound();
     }
+
+    // Obtener los productos relacionados a la categoria
+    // para poder mostrar los productos relacionados
+    const productsRaw = await getProductsByCategory(product.category);
+
+    // Desordenar los productos para mostrarloa de forma aleatoria
+    const products = shuffleArray(productsRaw).slice(0, 4);
+
     return (
         <div className={`${font.className} ${styles.wrapper_product}`}>
             <div className={`${styles.section_detail_product}`}>

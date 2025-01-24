@@ -5,7 +5,7 @@ import { Table, Title } from "@/components";
 import Button from '@/components/ui/button/Button';
 import { getTotalPrice, transformAmount } from "@/helpers";
 
-// Data dummy
+// Data dummy, a un no se modificara debido a que estos datos pertenecen al carrito
 const cart = initialData.products.slice(0, 3);
 
 export default function() {

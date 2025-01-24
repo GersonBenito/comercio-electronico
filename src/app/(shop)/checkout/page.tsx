@@ -5,23 +5,18 @@ import Button from "@/components/ui/button/Button";
 import { initialData } from "@/dummy/dummy";
 import { getTotalPrice, transformAmount } from "@/helpers";
 import TypePayment from "@/components/ui/type-payment/TypePayment";
+import { complementData } from "@/libs/utils/complement-data";
 
-// Data dummy
+// Data dummy, a un no se modificara debido a que estos datos pertenecen al carrito
 const cartProducts = initialData.products.slice(5, 8);
 
-//  Tipos de pagos estaticos, debido a que no se tiene un servicio para recuperar los tipos de pagos de forma dinamico
-const typePayments = [
-    {
-        id: 1,
-        type: 'Transferencia Bancaria Directa',
-        description: 'Realice su pago directamente en nuestra cuenta bancaria. Utilice su ID de pedido como referencia de pago. Su pedido no será enviado hasta que los fondos se hayan liquidado en nuestra cuenta.'
-    },
-    {
-        id: 2,
-        type: 'Contra Entrega',
-        description: 'Realice el pago al momento de recibir su pedido directamente en su domicilio. Asegúrese de tener el monto exacto en efectivo, ya que el repartidor podría no contar con cambio.'
-    }
-];
+/**
+ * Para los tipos de pago se usara data estatico
+ * debido a que la API que se esta consumiento no dispone de estos datos,
+ * en caso de disponer con una API que cuente con todos los datos 
+ * la variable almacenaria los datos obtenidos desde la API
+ */
+const typePayments = complementData.typePayments;
 
 export default function() {
     return (

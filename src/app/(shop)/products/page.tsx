@@ -1,12 +1,13 @@
 import { ProductGrid, Title } from "@/components";
-import { initialData } from "@/dummy/dummy";
 import styles from './products.module.css';
 import { font } from "@/config/font";
+import { getAllProducts } from "@/libs/api/products";
 
-// Data dummy
-const products = initialData.products;
+export default async function() {
 
-export default function() {
+    // Obtener todos los productos
+    const products = await getAllProducts();
+
     return (
         <div className={`${font.className} ${styles.products_wrapper}`}>
             <Title title="Tienda" className="align-center mt-2 mb-4"/>
