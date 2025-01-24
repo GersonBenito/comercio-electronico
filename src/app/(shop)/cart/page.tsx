@@ -4,17 +4,35 @@ import { initialData } from "@/dummy/dummy";
 import { Table, Title } from "@/components";
 import Button from '@/components/ui/button/Button';
 import { getTotalPrice, transformAmount } from "@/helpers";
+import { searchProducts } from "@/helpers/search";
 
 // Data dummy, a un no se modificara debido a que estos datos pertenecen al carrito
 const cart = initialData.products.slice(0, 3);
 
-export default function() {
+interface Props {
+    searchParams?: Promise<{
+        query?: string;
+        page?: string;
+    }>
+}
+
+export default async function({searchParams}:Props) {
+    //Obteber los datos de los props
+    const search = await searchParams;
+    const query = search?.query || '';
+
+    // En caso de contar con paginado se usara esta variable
+    const currentPage = Number(search?.page) || 1;
+
+    // La busqueda se realizara de forma local debido a que la API no cuenta con estos endpoints
+    const foundProducts = searchProducts(cart, query);
+
     const tableTitles = ['Producto', 'Precio', 'Cantidad', 'Subtotal'];
     return (
         <div className={`${font.className} ${styles.wrapper_cart}`}>
             <Title title="Carrito" className="align-center mb-3"/>
             <div className={`${styles.cart_products} mb-2`}>
-                <Table titles={tableTitles} products={cart} />
+                <Table titles={tableTitles} products={foundProducts} />
                 <div className={`${styles.check_out}`}>
                     <h2>Totales del carrito</h2>
                     <div className={`${styles.subtotal}`}>
