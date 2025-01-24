@@ -20,4 +20,6 @@ export * from './ui/quantity-button/QuantityButton';
 export * from './ui/rating/Rating';
 export * from './ui/table/Table';
 export * from './ui/form/Form';
-export * from './ui/type-payment/TypePyment';
+export * from './ui/type-payment/TypePayment';
+export * from './ui/type-payment/Payments';
+export * from './ui/search/Search';

@@ -1,4 +1,5 @@
-import { Actions, Logo } from "@/components";
+import { Logo } from "@/components";
+import Actions from '@/components/ui/actions/Actions';
 import { Menu } from "@/components";
 import Link from "next/link";
 import styles from './navbar.module.css';

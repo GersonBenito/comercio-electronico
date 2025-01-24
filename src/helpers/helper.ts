@@ -73,3 +73,19 @@ export const getTotalPrice = (products: Product[]): number => {
     // return products.reduce((accumulator, product) => (accumulator + (product.price * product.quantity)), 0)
     return products.reduce((accumulator, product) => (accumulator + product.price), 0)
 };
+
+/**
+ * Funcion para ofuscar los primeros digitos
+ * @param cardNumber numero de tarjeta o cuenta
+ * @returns nuevo string con los primeros digitos ofuscados
+ */
+export const obfuscateNumbers = (cardNumber: string | number): string =>{
+    const cardStr = cardNumber.toString(); // convertir el numero en string para obtener el length
+    if(cardStr && cardStr.length > 4){
+        // Ofuscar los primeros digitos de la cadena
+        const obfuscated = '*'.repeat(cardStr.length - 4) + cardStr.slice(-4);
+        return obfuscated;
+    }
+    console.log('El numero de tarjeta debe de tener almenos 4 digitos');
+    return '';
+}

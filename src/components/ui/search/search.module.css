@@ -1,0 +1,27 @@
+.wrapper_search{
+    display: flex;
+    align-items: center;
+}
+
+.wrapper_search .search{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #f4f5f7;
+    padding: 5px 14px;
+    border-right: 0px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.wrapper_search .search input{
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-top: -2px;
+}
+
+.wrapper_search .icon_close{
+    padding: 5px 8px;
+    background: #f4f5f7;
+    border-radius: 0px 5px 5px 0px;
+}

@@ -27,3 +27,8 @@
     font-weight: 300;
     color: #9F9F9F;
 }
+
+.payment .divider {
+    border-top: 1px solid #D9D9D9;
+    margin: 16px 0px;
+}

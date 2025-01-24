@@ -4,13 +4,13 @@ import { Form, Title } from "@/components";
 import Button from "@/components/ui/button/Button";
 import { initialData } from "@/dummy/dummy";
 import { getTotalPrice, transformAmount } from "@/helpers";
-import TypePyment from "@/components/ui/type-payment/TypePyment";
+import TypePayment from "@/components/ui/type-payment/TypePayment";
 
 // Data dummy
 const cartProducts = initialData.products.slice(5, 8);
 
 //  Tipos de pagos estaticos, debido a que no se tiene un servicio para recuperar los tipos de pagos de forma dinamico
-const typePyments = [
+const typePayments = [
     {
         id: 1,
         type: 'Transferencia Bancaria Directa',
@@ -57,7 +57,7 @@ export default function() {
                         </div>
                     </div>
                     <div className={styles.divider}/>
-                    <TypePyment typePyments={typePyments}/>
+                    <TypePayment typePayments={typePayments}/>
                     <div className={`${styles.privacy_policy} mb-3`}>
                         <p>
                             Sus datos personales se utilizarán para respaldar su experiencia en este sitio web, 

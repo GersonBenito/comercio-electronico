@@ -3,6 +3,9 @@
     gap: 16px;
 }
 
+/* .menu a:hover{
+    font-weight: 500;
+} */
 .horizontal {
     justify-content: center;
     align-items: center;

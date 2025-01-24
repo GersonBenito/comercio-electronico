@@ -1,0 +1,26 @@
+.wrapper_payment{
+    padding: 0px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.wrapper_payment .payment_content{
+    display: flex;
+    background: #f4f4f4;
+    padding: 16px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.wrapper_payment .selected{
+    border: 2px solid #B88E2F;
+}
+
+.wrapper_payment .payment_content h3{
+    color: #6E7179;
+    font-weight: 400;
+    font-size: 16px;
+}
