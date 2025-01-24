@@ -65,7 +65,12 @@ export default function() {
                         </p>
                     </div>
                     <div className="align-center">
-                        <Button label="Realizar pedido" type="outline-secondary" />
+                        <Button 
+                            label="Realizar pedido" 
+                            type="outline-secondary" 
+                            isRedirect={true}
+                            link="/products"
+                        />
                     </div>
                 </div>
             </div>
