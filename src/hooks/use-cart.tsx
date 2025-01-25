@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { Product } from "@/interfaces"
+import { Product } from "@/interfaces";
+import { toast } from "nextjs-toast-notify";
+import "nextjs-toast-notify/dist/nextjs-toast-notify.css";
 
 interface CartStore {
     items: Product[];
@@ -16,32 +18,28 @@ export const useCart = create(persist<CartStore>((set, get) => ({
         const existingItem = currentItems.find(item => item.id === product.id);
         // Verificar si existe el producto en el carrito
         if(existingItem){
-            // TODO: agregar notificacion
-            const existing = {
-                title: 'Producto ya existe en el carrito',
-                variant: 'destructive'
-            }
-            console.log('existing -->', existing);
-            return existing;
+            return toast.info('Producto ya existe en el carrito', {
+                position: 'top-center',
+                duration: 3000,
+                transition: 'popUp'
+            });;
         };
         set({ items: [...get().items, product]}); // agregar un nuevo producto al carrito
-        // TODO: agregar notificacion
-        const success = {
-            title: 'Producto añadido al carrito 🛒',
-            variant: 'destructive'
-        };
-        console.log('success -->', success);
+        toast.success('Producto añadido al carrito 🛒', {
+            position: 'top-center',
+            duration: 3000,
+            transition: 'popUp'
+        });
     },
     removeItem: (id: number | string) => {
         set({items: [
             ...get().items.filter(item => item.id !== id)
         ]});
-        // TODO: agregar notificacion
-        const deleteItem = {
-            title: 'Producto eliminado del carrito 🗑️',
-            variant: 'destructive'
-        };
-        console.log('deleteItem -->', deleteItem);
+        toast.warning('Producto eliminado del carrito 🗑️', {
+            position: 'top-center',
+            duration: 3000,
+            transition: 'popUp'
+        });
     },
     removeAll: () => set({items: []})
 }),{
