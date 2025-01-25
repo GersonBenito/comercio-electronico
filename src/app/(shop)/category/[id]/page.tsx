@@ -1,4 +1,4 @@
-import { ProductGrid, Title } from "@/components";
+import { ProductGrid, SkeletonProduct, Title } from "@/components";
 import { notFound } from "next/navigation";
 import styles from './category.module.css';
 import { font } from "@/config/font";
@@ -48,7 +48,7 @@ export default async function({params, searchParams}: Props) {
             {/* 
                 La pasamos la key para que pueda volver a renderizarse al buscar
             */}
-            <Suspense key={query + currentPage} fallback={<div><h1>Cargando... </h1></div>} >
+            <Suspense key={query + currentPage} fallback={<SkeletonProduct />} >
                 <ProductGrid endpint={`products/category/${id}`} query={query} className="mb-4" />
             </Suspense>
         </div>

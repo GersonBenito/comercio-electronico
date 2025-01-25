@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import styles from './product.module.css';
 import { font } from "@/config/font";
-import { ViewerImages, DetailProduct, Title, ProductGrid } from "@/components";
+import { ViewerImages, DetailProduct, Title, ProductGrid, SkeletonProduct } from "@/components";
 import Button from '@/components/ui/button/Button';
 import { getProductById } from "@/libs/api/products";
 import { Suspense } from "react";
@@ -44,7 +44,7 @@ export default async function ({params, searchParams}: Props) {
             </div>
             <div className={`${styles.related_products}`}>
                 <Title title="Productos relacionados" className="align-center mb-2" />
-                <Suspense key={query + currentPage} fallback={<div><h1>Cargando... </h1></div>} >
+                <Suspense key={query + currentPage} fallback={<SkeletonProduct />} >
                     <ProductGrid 
                         endpint={`products/category/${product.category}`} 
                         query={query}

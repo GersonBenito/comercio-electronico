@@ -1,4 +1,4 @@
-import { Banner, ProductGrid, Title } from "@/components";
+import { Banner, ProductGrid, SkeletonProduct, Title } from "@/components";
 import Button from '@/components/ui/button/Button';
 import { font } from "@/config/font";
 import styles from './page.module.css';
@@ -22,11 +22,11 @@ export default async function Home({searchParams}: Props) {
   return (
     <div className={font.className}>
       <Banner />
-      <Title title="Nuestros productos" className="align-center mt-2"/>
+      <Title title="Nuestros productos" className="align-center mt-2 mb-2"/>
       {/* 
         La pasamos la key para que pueda volver a renderizarse al buscar
        */}
-      <Suspense key={query + currentPage} fallback={<div><h1>Cargando... </h1></div>} >
+      <Suspense key={query + currentPage} fallback={<SkeletonProduct />} >
         <ProductGrid endpint="products/?limit=10" query={query} className="mb-4" />
       </Suspense>
       <div className="align-center mt-3 mb-3">

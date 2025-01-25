@@ -23,3 +23,4 @@ export * from './ui/form/Form';
 export * from './ui/type-payment/TypePayment';
 export * from './ui/type-payment/Payments';
 export * from './ui/search/Search';
+export * from './ui/skeleton/SkeletonProduct';

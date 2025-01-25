@@ -1,4 +1,4 @@
-import { ProductGrid, Title } from "@/components";
+import { ProductGrid, SkeletonProduct, Title } from "@/components";
 import styles from './products.module.css';
 import { font } from "@/config/font";
 import { Suspense } from "react";
@@ -21,7 +21,7 @@ export default async function({searchParams}: Props) {
     return (
         <div className={`${font.className} ${styles.products_wrapper}`}>
             <Title title="Tienda" className="align-center mt-2 mb-4"/>
-            <Suspense key={query + currentPage} fallback={<div><h1>Cargando... </h1></div>} >
+            <Suspense key={query + currentPage} fallback={<SkeletonProduct />} >
                 <ProductGrid endpint="products" query={query} className="mb-4" />
             </Suspense>
         </div>
