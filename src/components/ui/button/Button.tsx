@@ -11,9 +11,20 @@ interface Props {
   icon?: string;
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-const Button = ({label, type, isRedirect = false, link = '', icon, className, onClick}: Props) => {
+const Button = ({
+  label, 
+  type, 
+  isRedirect = false, 
+  link = '', 
+  icon, 
+  className, 
+  onClick,
+  disabled = false
+}: Props) => {
+
   const router = useRouter();
   const handleRedirect = () => {
     if(isRedirect){
@@ -28,6 +39,7 @@ const Button = ({label, type, isRedirect = false, link = '', icon, className, on
       onClick={(e) =>{
         onClick ? onClick() : handleRedirect()
       }}
+      disabled={disabled}
     >
       {icon && icon}
       {label}

@@ -1,6 +1,5 @@
 .btn {
     width: 150px;
-    /* height: 40px; */
     font-size: 14px;
     font-weight: 700;
     letter-spacing: .3px;
@@ -9,6 +8,11 @@
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+.btn:disabled {
+    cursor: no-drop;
+    opacity: 0.5;
 }
 
 .primary {

@@ -41,7 +41,14 @@ export const useCart = create(persist<CartStore>((set, get) => ({
             transition: 'popUp'
         });
     },
-    removeAll: () => set({items: []})
+    removeAll: () => {
+        set({items: []});
+        toast.warning('Productos eliminados del carrito 🗑️', {
+            position: 'top-center',
+            duration: 3000,
+            transition: 'popUp'
+        });
+    }
 }),{
     name: 'cart-storage',
     storage: createJSONStorage(() => localStorage)

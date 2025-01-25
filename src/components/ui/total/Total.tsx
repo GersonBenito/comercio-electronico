@@ -32,6 +32,7 @@ export const Total = ({query}: Props) => {
                 className={styles.button_transparent}
                 isRedirect={true}
                 link="/checkout"
+                disabled={ items.length >= 1 ? false : true }
             />
     </div>
   )
