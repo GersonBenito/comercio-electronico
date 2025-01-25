@@ -3,8 +3,7 @@ import { notFound } from "next/navigation";
 import styles from './category.module.css';
 import { font } from "@/config/font";
 import { replaceCharactersAndNumbers } from "@/helpers";
-import { getProductsByCategory } from "@/libs/api/products";
-import { searchProducts } from "@/helpers/search";
+import { Suspense } from "react";
 
 interface Props {
     params: {
@@ -27,12 +26,6 @@ export default async function({params, searchParams}: Props) {
     // En caso de contar con paginado se usara esta variable
     const currentPage = Number(search?.page) || 1;
 
-    // Obtener los productos pertenecientes a una categoria
-    const products = await getProductsByCategory(id);
-
-    // La busqueda se realizara de forma local debido a que la API no cuenta con estos endpoints
-    const foundProducts = searchProducts(products, query);
-
     // Reeemplazar caracteres no pemitidos para poder mostrar la categoria como titulo
     const categoryId = replaceCharactersAndNumbers(id);
     
@@ -52,7 +45,12 @@ export default async function({params, searchParams}: Props) {
     return (
         <div className={`${font.className} ${styles.wrapper_category} mb-4`}>
             <Title title={`Artículos de ${(label as any)[categoryId]}`} className="align-center mt-2 mb-2"/>
-            <ProductGrid products={foundProducts} />
+            {/* 
+                La pasamos la key para que pueda volver a renderizarse al buscar
+            */}
+            <Suspense key={query + currentPage} fallback={<div><h1>Cargando... </h1></div>} >
+                <ProductGrid endpint={`products/category/${id}`} query={query} className="mb-4" />
+            </Suspense>
         </div>
     );
 }

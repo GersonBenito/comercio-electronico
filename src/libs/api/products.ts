@@ -9,41 +9,6 @@ import { Product } from "@/interfaces";
 const API_URL = process.env.API_URL; // obtener la url base de las variables de entorno
 
 /**
- * Funcion para obtener todos los productos
- * @returns Promersa con una lista de productos
- */
-export const getAllProducts = async (): Promise<Product[]> => {
-    // Fetch de datos con caching estatico
-    const url = `${API_URL}/products`; 
-    // Uso de fetch nativo de JavaScript
-    const response = await fetch(url, { cache: 'force-cache'});
-    return await response.json(); // convertir o parsear la data a json
-}
-
-/**
- * Funcion para obtener una cantidad limitado de productos (paginado)
- * @param limit cantidad de productos o items a obtener
- * @returns Promersa con una lista de productos
- */
-export const getProductsByLimit = async (limit: string | number): Promise<Product[]> => {
-    // Fetch de datos con caching estatico
-    const url = `${API_URL}/products/?limit=${limit}`;
-    const response = await fetch(url, { cache: 'force-cache'});
-    return await response.json();
-}
-
-/**
- * Funcion para obtene los productos en base a una categoria en especifico
- * @param category categoria de los productos a obtener
- * @returns Promesa con lista de productos pertenecientes a una categoria en especifico
- */
-export const getProductsByCategory = async (category: string): Promise<Product[]> => {
-    const url = `${API_URL}/products/category/${category}`;
-    const response = await fetch(url, { cache: 'force-cache' });
-    return await response.json();
-}
-
-/**
  * Funcion para obteber los detalles de un producto por id
  * @param id del producto a obtener
  * @returns Promesa con un solo producto
@@ -64,4 +29,20 @@ export const getAllCategories = async (): Promise<string[]> => {
     const url = `${API_URL}/products/categories`;
     const response = await fetch(url, { cache: 'force-cache' }); 
     return await response.json();
+}
+
+/**
+ * Funcion generica para consumir los servicios de la API
+ * @param endpoint al que se necesita consumir, ejemplo: products/category
+ * @returns lista de productos del servicio
+ */
+export const getProducts = async (endpoint: string): Promise<Product[]> => {
+    // En caso de querer probar los Suspense de react descomentar esta linea de abajo
+    // await new Promise((resolve)=> setTimeout(resolve, 5000))
+
+    // Fetch de datos con caching estatico
+    const url = `${API_URL}/${endpoint}`; 
+    // Uso de fetch nativo de JavaScript
+    const response = await fetch(url, { cache: 'force-cache'});
+    return await response.json(); // convertir o parsear la data a json
 }

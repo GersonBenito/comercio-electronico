@@ -3,18 +3,29 @@ import styles from './product.module.css';
 import { font } from "@/config/font";
 import { ViewerImages, DetailProduct, Title, ProductGrid } from "@/components";
 import Button from '@/components/ui/button/Button';
-import { shuffleArray } from "@/helpers";
-import { getProductById, getProductsByCategory } from "@/libs/api/products";
+import { getProductById } from "@/libs/api/products";
+import { Suspense } from "react";
 
 interface Props {
     params: {
         id: string;
-    }
+    },
+    searchParams?: Promise<{
+        query?: string;
+        page?: string;
+    }>
 }
 
-export default async function ({params}: Props) {
+export default async function ({params, searchParams}: Props) {
     // obtener id enviado por medio de la url
     const { id } = await params;
+
+    //Obteber los datos de los props
+    const search = await searchParams;
+    const query = search?.query || '';
+
+    // En caso de contar con paginado se usara esta variable
+    const currentPage = Number(search?.page) || 1;
 
     // Obtener los detalles del producto seleccionado
     const product = await getProductById(id);
@@ -25,13 +36,6 @@ export default async function ({params}: Props) {
         notFound();
     }
 
-    // Obtener los productos relacionados a la categoria
-    // para poder mostrar los productos relacionados
-    const productsRaw = await getProductsByCategory(product.category);
-
-    // Desordenar los productos para mostrarloa de forma aleatoria
-    const products = shuffleArray(productsRaw).slice(0, 4);
-
     return (
         <div className={`${font.className} ${styles.wrapper_product}`}>
             <div className={`${styles.section_detail_product}`}>
@@ -40,7 +44,14 @@ export default async function ({params}: Props) {
             </div>
             <div className={`${styles.related_products}`}>
                 <Title title="Productos relacionados" className="align-center mb-2" />
-                <ProductGrid products={products} />
+                <Suspense key={query + currentPage} fallback={<div><h1>Cargando... </h1></div>} >
+                    <ProductGrid 
+                        endpint={`products/category/${product.category}`} 
+                        query={query}
+                        className="mb-4" 
+                        sort={true}
+                    />
+                </Suspense>
                 <div className="align-center mt-3 mb-1">
                     <Button 
                         label="Mostrar mas" 
