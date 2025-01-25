@@ -1,15 +1,21 @@
+'use client';
+
 import { CardImage } from "@/components";
 import { transformAmount } from "@/helpers";
 import Image from "next/image";
-import { Product } from "@/interfaces"
 import styles from "./table.module.css";
+import { useCart } from "@/hooks";
+import { searchProducts } from "@/helpers/search";
 
 interface Props {
     titles: string[]
-    products: Product[];
+    query: string;
 }
 
-export const Table = ({ titles, products }: Props) => {
+export const Table = ({ titles, query }: Props) => {
+    const { items, removeItem } = useCart();
+    // La busqueda se realizara de forma local debido a que la API no cuenta con estos endpoints
+    const foundProducts = searchProducts(items, query);
     return (
         <div className={`${styles.wrapper_table}`}>
             <table>
@@ -27,7 +33,7 @@ export const Table = ({ titles, products }: Props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map(product => (
+                    {foundProducts.map(product => (
                         <tr key={product.id}>
                             <td style={{ width: '45%' }}>
                                 <div className={`${styles.custom_content}`}>
@@ -60,7 +66,13 @@ export const Table = ({ titles, products }: Props) => {
                                 >
                                     {transformAmount(product.price)}
                                     <span className="pr-1" style={{cursor: 'pointer'}}>
-                                        <Image src="/assets/svg/trash.svg" width={20} height={20} alt="trash" />
+                                        <Image 
+                                            src="/assets/svg/trash.svg" 
+                                            width={20} 
+                                            height={20} 
+                                            alt="trash" 
+                                            onClick={ () => removeItem(product.id) }
+                                        />
                                     </span>
                                 </div>
                             </td>

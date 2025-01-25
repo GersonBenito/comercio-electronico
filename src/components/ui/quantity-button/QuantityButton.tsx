@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const QuantityButton = () => {
-    const [counter, setCounter] = useState<number>(0);
+    const [counter, setCounter] = useState<number>(1);
 
     const handlePlus = () => {
         setCounter(counter + 1);
@@ -18,7 +18,7 @@ const QuantityButton = () => {
 
     return (
         <div className={`${font.className} ${styles.wrapper_quantity_button}`}>
-        <button className={styles.plus} disabled={counter >= 1 ? false : true}>
+        <button className={styles.plus} disabled={counter >= 2 ? false : true}>
             <Image 
                 src="/assets/svg/minus.svg" 
                 width={16} 

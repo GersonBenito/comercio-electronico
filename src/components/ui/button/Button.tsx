@@ -10,22 +10,24 @@ interface Props {
   link?: string;
   icon?: string;
   className?: string;
+  onClick?: () => void;
 }
 
-const Button = ({label, type, isRedirect = false, link = '', icon, className}: Props) => {
+const Button = ({label, type, isRedirect = false, link = '', icon, className, onClick}: Props) => {
   const router = useRouter();
-  const handleAction = () => {
+  const handleRedirect = () => {
     if(isRedirect){
       router.push(link);
-    }else{
-      // ejecutar accion recibido desde props
     }
   }
+
   const typeButton = style[type];
   return (
     <button 
       className={`${style.btn} ${typeButton} ${className}`}
-      onClick={handleAction}
+      onClick={(e) =>{
+        onClick ? onClick() : handleRedirect()
+      }}
     >
       {icon && icon}
       {label}

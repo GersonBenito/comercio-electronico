@@ -24,3 +24,5 @@ export * from './ui/type-payment/TypePayment';
 export * from './ui/type-payment/Payments';
 export * from './ui/search/Search';
 export * from './ui/skeleton/SkeletonProduct';
+export * from './ui/total/Total';
+export * from './ui/summary/Summary';

@@ -9,6 +9,7 @@ import { useState } from "react";
 import Button from '@/components/ui/button/Button';
 import { font } from "@/config/font";
 import Link from "next/link";
+import { useCart } from "@/hooks";
 
 interface Props {
   product: Product;
@@ -17,6 +18,7 @@ interface Props {
 export const ProductItem = ({product}:Props) => {
 
   const [hover, setHover] = useState<string>('hidden_hover');
+  const { addItem } = useCart();
 
   return (
     <div 
@@ -38,7 +40,11 @@ export const ProductItem = ({product}:Props) => {
           <span>{transformAmount(product.price)}</span>
       </div>
       <div className={styles[hover]}>
-        <Button label="Agregar al carito" type="secondary" />
+        <Button 
+          label="Agregar al carito" 
+          type="secondary" 
+          onClick={ () => addItem(product) }
+        />
         <div className={styles.section_actions}>
           <div className={styles.text_icon}>
             <Link href="/share">

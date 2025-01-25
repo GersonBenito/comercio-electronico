@@ -1,14 +1,9 @@
 import { font } from "@/config/font";
 import styles from "./checkout.module.css";
-import { Form, Title } from "@/components";
+import { Form, Summary, Title } from "@/components";
 import Button from "@/components/ui/button/Button";
-import { initialData } from "@/dummy/dummy";
-import { getTotalPrice, transformAmount } from "@/helpers";
 import TypePayment from "@/components/ui/type-payment/TypePayment";
 import { complementData } from "@/libs/utils/complement-data";
-
-// Data dummy, a un no se modificara debido a que estos datos pertenecen al carrito
-const cartProducts = initialData.products.slice(5, 8);
 
 /**
  * Para los tipos de pago se usara data estatico
@@ -25,32 +20,7 @@ export default function() {
             <div className={`${styles.content_checkout}`}>
                 <Form />
                 <div className={`${styles.confirm}`}>
-                    <div className={`${styles.list_products_checkout}`}>
-                        <div className={`${styles.titles} ${styles.content_space_between} mb-1`}>
-                            <h3>Productos</h3>
-                            <h3>Subtotal</h3>
-                        </div>
-                        {cartProducts.map(product =>(
-                            <div key={product.id} className={`${styles.product} ${styles.content_space_between} mb-1`}>
-                                <p>{product.title} <span>x 2</span></p>
-                                <p className={`${styles.price_product}`}>
-                                    {transformAmount(product.price)}
-                                </p>
-                            </div>
-                        ))}
-                        <div className={`${styles.subtotal} ${styles.content_space_between} mb-1`}>
-                            <h4>Subtotal</h4>
-                            <p className={`${styles.amount_subtotal}`}>
-                                {transformAmount(getTotalPrice(cartProducts))}
-                            </p>
-                        </div>
-                        <div className={`${styles.total} ${styles.content_space_between} mb-1`}>
-                            <h4>Total</h4>
-                            <p className={`${styles.amount_total}`}>
-                                {transformAmount(getTotalPrice(cartProducts))}
-                            </p>
-                        </div>
-                    </div>
+                    <Summary />
                     <div className={styles.divider}/>
                     <TypePayment typePayments={typePayments}/>
                     <div className={`${styles.privacy_policy} mb-3`}>

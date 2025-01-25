@@ -1,3 +1,5 @@
+'use client';
+
 import { font } from '@/config/font';
 import styles from './detail-produc.module.css';
 import { Product } from '@/interfaces';
@@ -7,11 +9,15 @@ import Size from '@/components/ui/size/Size';
 import Color from '@/components/ui/color/Color';
 import QuantityButton from '@/components/ui/quantity-button/QuantityButton';
 import Rating from '@/components/ui/rating/Rating';
+import { useCart } from '@/hooks';
 
 interface Props {
   product: Product;
 }
+
 export const DetailProduct = ({product}: Props) => {
+
+  const { addItem } = useCart();
 
   const label = {
     'electronics': 'Electrónica',
@@ -44,7 +50,11 @@ export const DetailProduct = ({product}: Props) => {
       <div className={`${styles.product_actions}`}>
         {/* Button counter */}
         <QuantityButton />
-        <Button label="Agregar al carito" type="outline-secondary" />
+        <Button 
+          label="Agregar al carito" 
+          type="outline-secondary" 
+          onClick={ () => addItem(product) }
+        />
         <Button label="Agregar a favorito" type="outline-secondary" />
       </div>
       <div className={`${styles.aditional_info}`}>

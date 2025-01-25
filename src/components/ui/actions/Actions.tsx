@@ -6,13 +6,12 @@ import Image from 'next/image';
 import Search from '@/components/ui/search/Search';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-
-// Data dummy
-const counter = 3;
+import { useCart } from '@/hooks';
 
 const Actions = () => {
   const [show, setShow] = useState<boolean>(false);
   const pathname = usePathname();
+  const { items } = useCart();
 
   /**
    * Funcion para verificar la ruta actual para poder ocultar el icono de busqueda
@@ -40,7 +39,7 @@ const Actions = () => {
       </Link>
       <Link href="/cart">
         <div className={styles.counter}>
-          {(counter >= 1) && <div className={styles.badge}>{counter}</div>}
+          {(items.length >= 1) && <div className={styles.badge}>{items.length}</div>}
           <Image src="/assets/svg/cart.svg" alt="cart" width={20} height={20} />
         </div>
       </Link>

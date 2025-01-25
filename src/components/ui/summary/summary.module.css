@@ -1,0 +1,39 @@
+.wrapper_summary .content_space_between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+.wrapper_summary .titles h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.wrapper_summary .product{
+    color: #9f9f9f;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.wrapper_summary .product span{
+    color: #000000;
+}
+
+.wrapper_summary .product .price_product,
+.wrapper_summary .subtotal .amount_subtotal{
+    color: #000000;
+    font-weight: 300;
+    font-size: 16px;
+}
+.wrapper_summary .subtotal h4,
+.wrapper_summary .total h4{
+    color: #000000;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.wrapper_summary .total .amount_total{
+    font-size: 24px;
+    font-weight: 700;
+    color: #B88E2F;
+}
