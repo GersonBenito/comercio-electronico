@@ -15,9 +15,9 @@ export const Summary = () => {
             </div>
             {items.map(product =>(
                 <div key={product.id} className={`${styles.product} ${styles.content_space_between} mb-1`}>
-                    <p>{product.title} <span>x 2</span></p>
+                    <p>{product.title} <span>x {product.quantity}</span></p>
                     <p className={`${styles.price_product}`}>
-                        {transformAmount(product.price)}
+                        {transformAmount(product.price * product.quantity)}
                     </p>
                 </div>
             ))}

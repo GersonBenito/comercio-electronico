@@ -6,25 +6,49 @@ import "nextjs-toast-notify/dist/nextjs-toast-notify.css";
 
 interface CartStore {
     items: Product[];
+    item: Product;
     addItem: (product: Product) => void;
     removeItem: (id: number | string) => void;
     removeAll: () => void;
+    addOnlyItem: (product: Product) => void;
+    increaseQuantity: (increase: number) => void;
+    subtractQuantity: (subtract: number) => void;
+    updateQuantity: (product: Product) => void;
 }
 
 export const useCart = create(persist<CartStore>((set, get) => ({
     items: [],
+    item:{
+        id: 0,
+        title: '',
+        description: '',
+        image: '',
+        price: 0,
+        rating: {
+            count: 0,
+            rate: 0
+        },
+        category: '',
+        quantity: 0
+    },
     addItem: (product: Product) => {
         const currentItems = get().items;
         const existingItem = currentItems.find(item => item.id === product.id);
         // Verificar si existe el producto en el carrito
         if(existingItem){
-            return toast.info('Producto ya existe en el carrito', {
+            set({items: [
+                    ...get().items.map(item => ({
+                            ...item,
+                            quantity: item.id === product.id ? item?.quantity + 1 : item.quantity
+                        }))
+                    ]}); // incrementar la cantidad de productos y no agregar uno nuevo al carrito
+            return toast.info('Cantidad actualizada en el carrito 🛒', {
                 position: 'top-center',
                 duration: 3000,
                 transition: 'popUp'
             });;
         };
-        set({ items: [...get().items, product]}); // agregar un nuevo producto al carrito
+        set({items: [...get().items, {...product, quantity: 1}]}); // agregar un nuevo producto al carrito
         toast.success('Producto añadido al carrito 🛒', {
             position: 'top-center',
             duration: 3000,
@@ -48,6 +72,28 @@ export const useCart = create(persist<CartStore>((set, get) => ({
             duration: 3000,
             transition: 'popUp'
         });
+    },
+    addOnlyItem: (product: Product) => {
+        set({item: product});
+    },
+    increaseQuantity: (increase: number) => {
+        set({item: {...get().item, quantity: get().item.quantity + increase}});
+    },
+    subtractQuantity: (subtract: number) => {
+        set({item: {...get().item, quantity: get().item.quantity - subtract}});
+    },
+    updateQuantity: (product: Product) => {
+        set({items: [
+            ...get().items.map(item => ({
+                    ...item,
+                    quantity: item.id === product.id ? product?.quantity : item.quantity
+                }))
+            ]}); // Actualizar la cantidad unicamente producto sin modificar algun otro estado
+        return toast.info('Cantidad actualizada en el carrito 🛒', {
+            position: 'top-center',
+            duration: 3000,
+            transition: 'popUp'
+        });;
     }
 }),{
     name: 'cart-storage',

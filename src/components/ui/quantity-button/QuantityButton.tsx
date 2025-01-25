@@ -4,16 +4,26 @@ import { font } from '@/config/font';
 import styles from './quantity-button.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useCart } from '@/hooks';
+import { Product } from '@/interfaces';
 
-const QuantityButton = () => {
-    const [counter, setCounter] = useState<number>(1);
+interface Props {
+    product: Product;
+}
+
+const QuantityButton = ({product}:Props) => {
+
+    const [counter, setCounter] = useState<number>(product.quantity || 1);
+    const { increaseQuantity, subtractQuantity } = useCart();
 
     const handlePlus = () => {
         setCounter(counter + 1);
+        increaseQuantity(1);
     } 
 
     const handleMinus = () => {
         setCounter(counter - 1);
+        subtractQuantity(1);
     } 
 
     return (

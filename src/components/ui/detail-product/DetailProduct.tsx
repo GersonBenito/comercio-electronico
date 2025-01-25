@@ -17,7 +17,16 @@ interface Props {
 
 export const DetailProduct = ({product}: Props) => {
 
-  const { addItem } = useCart();
+  const { addItem, updateQuantity, items, item } = useCart();
+
+  /**
+   *  Verificar si este producto ya se encuentra en el carrito
+      para poder incrementarle la cantidad en el control
+   */
+  product = {
+    ...product,
+    quantity: items.find(item => item.id === product.id)?.quantity || 1
+  }
 
   const label = {
     'electronics': 'Electrónica',
@@ -26,8 +35,11 @@ export const DetailProduct = ({product}: Props) => {
     'womensclothing': 'Ropa de mujer',
   }
 
-  // Para efectos de prueba los sizes y colors unicamente estaran maquedados, en caso de contar con una API
-  // donde devuelva toda esta data se puede incluir la funcionalidad
+  /**
+   *  Para efectos de prueba los sizes y colors unicamente estaran maquedados, 
+   *  en caso de contar con una API donde devuelva toda esta data se puede incluir 
+   *  la funcionalidad
+   */
   const sizes = ['L', 'XL', 'XS'];
   const colors = ['#9F9F9F', '#000000', '#B88E2F'];
 
@@ -49,11 +61,11 @@ export const DetailProduct = ({product}: Props) => {
       {/* actions */}
       <div className={`${styles.product_actions}`}>
         {/* Button counter */}
-        <QuantityButton />
+        <QuantityButton product={product} />
         <Button 
           label="Agregar al carito" 
           type="outline-secondary" 
-          onClick={ () => addItem(product) }
+          onClick={ () => updateQuantity(item) }
         />
         <Button label="Agregar a favorito" type="outline-secondary" />
       </div>

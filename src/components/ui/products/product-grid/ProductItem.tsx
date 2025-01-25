@@ -18,7 +18,20 @@ interface Props {
 export const ProductItem = ({product}:Props) => {
 
   const [hover, setHover] = useState<string>('hidden_hover');
-  const { addItem } = useCart();
+  const { addItem, addOnlyItem, items } = useCart();
+
+  /**
+   *  Verificar si este producto ya se encuentra en el carrito
+      para poder incrementarle la cantidad en el control
+   */
+  
+  const handleAction = () => {
+    const onlyProduct = {
+      ...product,
+      quantity: items.find(item => item.id === product.id)?.quantity || 1
+    }
+    addOnlyItem(onlyProduct);
+  }
 
   return (
     <div 
@@ -53,7 +66,7 @@ export const ProductItem = ({product}:Props) => {
             </Link>
           </div>
           <div className={styles.text_icon}>
-            <Link href={`/product/${product.id}`}>
+            <Link href={`/product/${product.id}`} onClick={ handleAction }>
               <Image src="/assets/svg/detail.svg" alt="detail" width={16} height={16} />
               Detalles
             </Link>
