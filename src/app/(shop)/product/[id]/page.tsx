@@ -37,8 +37,25 @@ export default async function ({params, searchParams}: Props) {
     }
 
     return (
-        <div className={`${font.className} ${styles.wrapper_product}`}>
-            <div className={`${styles.section_detail_product}`}>
+        <div className={`${font.className}`}>
+            <div className={`
+                ${font.className}
+                row
+                pr-3
+                pl-3
+                pt-4
+                pb-4
+                pr-sm-4
+                pr-md-4
+                pr-lg-4
+                pr-xl-6
+                pr-xxl-6
+                pr-sm-4
+                pl-md-4
+                pl-lg-4
+                pl-xl-6
+                pl-xxl-6
+            `}>
                 <ViewerImages product={product} />
                 <DetailProduct product={product} />
             </div>

@@ -14,7 +14,11 @@ export const Logo = () => {
         width={50}
         height={32}
       />
-      <div className={style.name}>eCommerce</div>
+      <div 
+        className={`${style.name} d-md-block d-lg-block d-xl-block d-xxl-block d-none`}
+      >
+        eCommerce
+      </div>
     </div>
   )
 }

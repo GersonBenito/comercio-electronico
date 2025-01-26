@@ -13,12 +13,29 @@ export const Navbar = () => {
     <nav className={`
       ${font.className},
       ${styles.wrapper_navbar}
+      pl-md-4
+      pl-lg-4
+      pl-xl-5
+      pl-xxl-5
+      pr-md-4
+      pr-lg-4
+      pr-xl-5
+      pr-xxl-5
+      pr-3
+      pl-3
+      pt-4
+      pb-4
     `}>
         <Link href="/">
             <Logo />
         </Link>
-        <Menu links={links}/>
-        <Actions />
+        <div className={`${styles.menu_navbar} d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block d-none`}>
+          <Menu links={links} />
+          {/* TODO: mostrar cataegorias en un select */}
+        </div>
+        <div className={`${styles.actions_navbar}`}>
+          <Actions />
+        </div>
     </nav>
   )
 }

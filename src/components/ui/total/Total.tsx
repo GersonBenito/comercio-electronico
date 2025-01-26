@@ -9,14 +9,15 @@ import { searchProducts } from "@/helpers/search";
 
 interface Props {
     query: string;
+    className?: string;
 }
 
-export const Total = ({query}: Props) => {
+export const Total = ({query, className}: Props) => {
     const { items } = useCart();
     // La busqueda se realizara de forma local debido a que la API no cuenta con estos endpoints
     const foundProducts = searchProducts(items, query);
     return (
-        <div className={`${font.className} ${styles.wrapper_total}`}>
+        <div className={`${font.className} ${styles.wrapper_total} ${className}`}>
             <h2>Totales del carrito</h2>
             <div className={`${styles.subtotal}`}>
                 <h4>Subtotal</h4>

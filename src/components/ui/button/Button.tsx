@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation';
 import style from './button.module.css';
 
 interface Props {
-  label: string;
-  type: string; 
+  label?: string;
+  type?: string; 
   isRedirect?: boolean
   link?: string;
   icon?: string;
@@ -15,8 +15,8 @@ interface Props {
 }
 
 const Button = ({
-  label, 
-  type, 
+  label = '', 
+  type = 'primary', 
   isRedirect = false, 
   link = '', 
   icon, 

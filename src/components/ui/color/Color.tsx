@@ -12,8 +12,8 @@ const Color = ({colors}:Props) => {
   const [selectColor, setSelectColor] = useState<string>('');
   return (
     <div className={`${font.className} ${styles.wrapper_color}`}>
-      <p className="mb-2">Color</p>
-      <div className={`${styles.list_color} mb-2`}>
+      <p className="mb-3">Color</p>
+      <div className={`${styles.list_color} mb-4`}>
         {
           colors.map(color => (
             <button 

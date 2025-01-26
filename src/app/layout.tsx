@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import "../styles/grid.css";
+import "../styles/spacing.css";
+import "../styles/text.css";
 import { font } from "@/config/font";
 
 

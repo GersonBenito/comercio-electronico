@@ -1,9 +1,12 @@
 import { font } from "@/config/font";
 import styles from "./checkout.module.css";
-import { Form, Summary, Title } from "@/components";
+import { Summary, Title } from "@/components";
+import Form from "@/components/ui/form/Form";
 import Button from "@/components/ui/button/Button";
 import TypePayment from "@/components/ui/type-payment/TypePayment";
 import { complementData } from "@/libs/utils/complement-data";
+import ShowDynamicComponent from "@/components/dynamic-component/ShowDynamicComponent";
+
 
 /**
  * Para los tipos de pago se usara data estatico
@@ -15,11 +18,45 @@ const typePayments = complementData.typePayments;
 
 export default function() {
     return (
-        <div className={`${font.className} ${styles.chekout_wrapper}`}>
+        <div className={`
+            ${font.className} 
+            ${styles.chekout_wrapper}
+            pr-3
+            pl-3
+            pt-4
+            pb-4
+            pr-sm-4
+            pr-md-4
+            pr-lg-4
+            pr-xl-5
+            pr-xxl-6
+            pr-sm-4
+            pl-md-4
+            pl-lg-4
+            pl-xl-5
+            pl-xxl-6
+        `}>
             <Title title="Checkout" className="align-center mb-2" />
-            <div className={`${styles.content_checkout}`}>
-                <Form />
-                <div className={`${styles.confirm}`}>
+            <div className={`
+                ${styles.content_checkout}
+                d-flex
+                justify-content-center
+            `}>
+                <ShowDynamicComponent 
+                    componentType="Form" 
+                    props={{
+                        className: 'col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 col-xxl-6'
+                    }}
+                />
+                <div className={`
+                    ${styles.confirm}
+                    col-12
+                    col-sm-12
+                    col-md-12
+                    col-lg-6
+                    col-xl-5
+                    col-xxl-5
+                `}>
                     <Summary />
                     <div className={styles.divider}/>
                     <TypePayment typePayments={typePayments}/>
@@ -30,11 +67,15 @@ export default function() {
                         </p>
                     </div>
                     <div className="align-center">
-                        <Button 
-                            label="Realizar pedido" 
-                            type="outline-secondary" 
-                            isRedirect={true}
-                            link="/products"
+                        <ShowDynamicComponent 
+                            componentType="Button" 
+                            isButton={true}
+                            props={{
+                                label: 'Realizar pedido',
+                                type: "outline-secondary",
+                                isRedirect: true,
+                                link: '/products'
+                            }}
                         />
                     </div>
                 </div>

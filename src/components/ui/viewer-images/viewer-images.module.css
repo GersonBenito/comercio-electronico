@@ -9,3 +9,10 @@
     flex-direction: column;
     gap: 24px;
 }
+
+.wrapper_viewer_images .list_images_movil{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    justify-items: center;
+}

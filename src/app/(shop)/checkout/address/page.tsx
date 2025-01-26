@@ -1,5 +1,7 @@
+import Form from "@/components/ui/form/Form";
+
 export default function() {
     return (
-        <div>Adress page</div>
+        <div><Form /></div>
     );
 }

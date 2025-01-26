@@ -44,8 +44,17 @@ export const DetailProduct = ({product}: Props) => {
   const colors = ['#9F9F9F', '#000000', '#B88E2F'];
 
   return (
-    <div className={`${font.className} ${styles.wrapper_details}`}>
-      <h1 className="mb-1">{product.title}</h1>
+    <div className={`
+      ${font.className} 
+      ${styles.wrapper_details}
+      col-12
+      col-sm-12
+      col-md-12
+      col-lg-12
+      col-xl-6
+      col-xxl-6
+    `}>
+      <h1 className="mb-1 mt-3 mt-sm-3 mt-md-3 mt-lg-3 mt-xl-0 mt-xx-0">{product.title}</h1>
       <h2 className="mb-1">{transformAmount(product.price)}</h2>
       <div className={`${styles.rating} mb-1`}>
         <div className={`${styles.stars}`}>
@@ -53,7 +62,7 @@ export const DetailProduct = ({product}: Props) => {
         </div> | 
         <p className={`${styles.counter}`}>{product.rating.count} Opinión de cliente</p>
       </div>
-      <p className="regular-body mb-2">{product.description}</p>
+      <p className="regular-body mb-3">{product.description}</p>
       {/* size */}
       <Size sizes={sizes} selectedSize={sizes[0]} />
       {/* colors */}

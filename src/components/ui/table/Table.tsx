@@ -12,9 +12,10 @@ import { Product } from "@/interfaces";
 interface Props {
     titles: string[]
     query: string;
+    className?: string;
 }
 
-export const Table = ({ titles, query }: Props) => {
+export const Table = ({ titles, query, className }: Props) => {
     const { items, removeItem, addOnlyItem } = useCart();
     // La busqueda se realizara de forma local debido a que la API no cuenta con estos endpoints
     const foundProducts = searchProducts(items, query);
@@ -32,7 +33,7 @@ export const Table = ({ titles, query }: Props) => {
     }
 
     return (
-        <div className={`${styles.wrapper_table}`}>
+        <div className={`${styles.wrapper_table} ${className}`}>
             <table>
                 <thead>
                     <tr>
