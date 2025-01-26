@@ -31,7 +31,11 @@ export const DetailProduct = ({product}: Props) => {
   // Validar si este producto es totalmente nuevo o existente en el carrito
   const validateQuantity = () => {
     const findProduct = items.find(product => product.id === item.id);
-    findProduct ? updateQuantity(item) : addItem(product, item.quantity);
+    if(findProduct){
+      updateQuantity(item);
+    }else{
+      addItem(product, item.quantity);
+    };
   }
 
   const category = replaceCharactersAndNumbers(product.category);
