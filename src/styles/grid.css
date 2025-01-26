@@ -41,6 +41,11 @@
     justify-content: center !important;
 }
 
+.justify-content-end {
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+  }
+
 /* Gap or gutter seperator */
 .gap-0 {
     gap: 0 !important;

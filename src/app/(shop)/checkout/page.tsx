@@ -1,8 +1,6 @@
 import { font } from "@/config/font";
 import styles from "./checkout.module.css";
 import { Summary, Title } from "@/components";
-import Form from "@/components/ui/form/Form";
-import Button from "@/components/ui/button/Button";
 import TypePayment from "@/components/ui/type-payment/TypePayment";
 import { complementData } from "@/libs/utils/complement-data";
 import ShowDynamicComponent from "@/components/dynamic-component/ShowDynamicComponent";
@@ -87,7 +85,7 @@ export default function() {
                                 label: 'Realizar pedido',
                                 type: "outline-secondary",
                                 isRedirect: true,
-                                link: '/products'
+                                link: '/checkout/successful-purchase'
                             }}
                         />
                     </div>

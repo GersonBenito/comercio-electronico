@@ -14,3 +14,9 @@ export const MENU_HELP: LinkMenu[] = [
     { label: 'Reembolsos', url: '/' },
     { label: 'Politicas de privacida', url: '/' }
 ];
+
+export const PAGE_NO_SEARCH = {
+    checkout: '/checkout',
+    address: '/checkout/address',
+    purchase: '/checkout/successful-purchase'
+}

@@ -7,6 +7,7 @@ import Search from '@/components/ui/search/Search';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useCart } from '@/hooks';
+import { PAGE_NO_SEARCH } from '@/constants/menus';
 
 const Actions = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -19,7 +20,11 @@ const Actions = () => {
    * @returns varlor verdadero o falso
    */
   const verifyPath = (): boolean => {
-    return pathname && pathname.toUpperCase() !== '/CHECKOUT' ? true : false;
+    const path = pathname.toLowerCase() || '';
+    if(path === (PAGE_NO_SEARCH.checkout) || (path === PAGE_NO_SEARCH.address) || (path === PAGE_NO_SEARCH.purchase)){
+      return false;
+    }
+    return true;
   }
 
   return (

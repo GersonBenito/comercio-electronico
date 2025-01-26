@@ -32,9 +32,9 @@ export const ViewerImages = ({product}: Props) => {
          d-none
       `}>
         {
-          counts.map((image, idx) =>(
-            <div className="mb-3">
-              <CardImage key={idx} image={product.image} width={50} height={50} title={product.title} />
+          counts.map(image =>(
+            <div className="mb-3" key={image}>
+              <CardImage image={product.image} width={50} height={50} title={product.title} />
             </div>
           ))
         }
@@ -60,8 +60,8 @@ export const ViewerImages = ({product}: Props) => {
       `}>
         <div className={`${styles.list_images_movil}`}>
           {
-            counts.map((image, idx) =>(
-              <CardImage key={idx} image={product.image} width={30} height={30} title={product.title} />
+            counts.map(image =>(
+              <CardImage key={image} image={product.image} width={30} height={30} title={product.title} />
             ))
           }
         </div>

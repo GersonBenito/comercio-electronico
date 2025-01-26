@@ -3,14 +3,19 @@ import styles from "./form.module.css";
 
 interface Props {
     className?: string;
+    classCenter?: string; 
+    styleTitle?: string;
 }
-export default function Form({className}:Props){
+export default function Form({className, classCenter, styleTitle}:Props){
   return (
     <div className={`${font.className} ${styles.wrapper_form} ${className}`}>
-      <h2 className="mb-2">Detalles de facturación</h2>
+        <div className={`${styleTitle} mb-2`}>
+            <h2>Detalles de facturación</h2>
+        </div>
       <form>
         <div className={`
             ${styles.inline} 
+            ${classCenter} 
             row
             gap-0
             gap-sm-0
@@ -46,6 +51,7 @@ export default function Form({className}:Props){
         </div>
         <div className={`
             ${styles.inline} 
+            ${classCenter}
             row
             gap-0
             gap-sm-0
@@ -87,6 +93,7 @@ export default function Form({className}:Props){
         </div>
         <div className={`
             ${styles.inline} 
+            ${classCenter}
             row
             gap-0
             gap-sm-0
@@ -125,6 +132,7 @@ export default function Form({className}:Props){
         </div>
         <div className={`
             ${styles.inline} 
+            ${classCenter}
             row
             gap-0
             gap-sm-0
@@ -166,6 +174,7 @@ export default function Form({className}:Props){
         </div>
         <div className={`
             ${styles.inline} 
+            ${classCenter}
             row
             gap-0
             gap-sm-0
@@ -200,7 +209,8 @@ export default function Form({className}:Props){
             </div>
         </div>
         <div className={`
-            ${styles.inline} 
+            ${styles.inline}
+            ${classCenter} 
             row
             gap-0
             gap-sm-0
