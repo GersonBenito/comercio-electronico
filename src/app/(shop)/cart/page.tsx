@@ -9,7 +9,7 @@ interface Props {
     }>
 }
 
-export default async function({searchParams}:Props) {
+export default async function Page({searchParams}:Props) {
     //Obteber los datos de los props
     const search = await searchParams;
     const query = search?.query || '';

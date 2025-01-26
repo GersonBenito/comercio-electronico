@@ -14,7 +14,7 @@ import ShowDynamicComponent from "@/components/dynamic-component/ShowDynamicComp
  */
 const typePayments = complementData.typePayments;
 
-export default function() {
+export default function Page() {
     return (
         <div className={`
             ${font.className} 

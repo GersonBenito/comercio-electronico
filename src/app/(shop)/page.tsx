@@ -1,7 +1,6 @@
 import { Banner, ProductGrid, SkeletonProduct, Title } from "@/components";
 import Button from '@/components/ui/button/Button';
 import { font } from "@/config/font";
-import styles from './page.module.css';
 import { Suspense } from "react";
 
 interface Props {

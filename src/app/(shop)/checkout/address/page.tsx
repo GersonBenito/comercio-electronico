@@ -2,7 +2,7 @@ import { Title } from "@/components";
 import Button from "@/components/ui/button/Button";
 import Form from "@/components/ui/form/Form";
 
-export default function() {
+export default function Page() {
     return (
         <div className="
             pr-3

@@ -15,7 +15,7 @@ interface Props {
     }>
 }
 
-export default async function({params, searchParams}: Props) {
+export default async function Page({params, searchParams}: Props) {
     // Obtener id de la categoria enviado por medio de la url
     const { id } = await params;
 
@@ -30,7 +30,7 @@ export default async function({params, searchParams}: Props) {
     const categoryId = replaceCharactersAndNumbers(id);
     
     // Diccionario de catagorias para mostrarlo como titulo de la pantalla
-    const label = {
+    const label: Record<string, string> = {
         'electronics': 'Electrónica',
         'jewelery': 'Joyería',
         'mensclothing': 'Ropa de hombre',
@@ -44,7 +44,7 @@ export default async function({params, searchParams}: Props) {
 
     return (
         <div className={`${font.className} ${styles.wrapper_category} mb-4`}>
-            <Title title={`Artículos de ${(label as any)[categoryId]}`} className="align-center mt-2 mb-2"/>
+            <Title title={`Artículos de ${label[categoryId]}`} className="align-center mt-2 mb-2"/>
             {/* 
                 La pasamos la key para que pueda volver a renderizarse al buscar
             */}

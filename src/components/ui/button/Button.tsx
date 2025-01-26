@@ -36,7 +36,7 @@ const Button = ({
   return (
     <button 
       className={`${style.btn} ${typeButton} ${className}`}
-      onClick={(e) =>{
+      onClick={() =>{
         onClick ? onClick() : handleRedirect()
       }}
       disabled={disabled}

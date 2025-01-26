@@ -16,7 +16,7 @@ interface Props {
     }>
 }
 
-export default async function ({params, searchParams}: Props) {
+export default async function Page({params, searchParams}: Props) {
     // obtener id enviado por medio de la url
     const { id } = await params;
 

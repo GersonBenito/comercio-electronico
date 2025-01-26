@@ -13,3 +13,5 @@ export interface Rating {
     rate: number;
     count: number;
 }
+
+export type ValidCategories = 'electronics'|'jewelery'|'mensclothing'|'womensclothing';

@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Logo from '@/components/ui/logo/Logo';
 import { MAIN_MENU } from '@/constants/menus';
 import Link from 'next/link';
-import { useControlSearch } from '@/hooks/use-control-search';
 
 interface Props {
     className?: string;
@@ -16,7 +15,6 @@ const HamburgerMenu = ({className}:Props) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const { show } = useControlSearch();
 
 
 const handleMenuToggle = () => {

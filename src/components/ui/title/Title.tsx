@@ -1,5 +1,4 @@
 import { font } from '@/config/font';
-import styles from './title.module.css';
 
 interface Props {
     title: string;

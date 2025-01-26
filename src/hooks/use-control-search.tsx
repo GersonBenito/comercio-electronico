@@ -11,7 +11,7 @@ interface ControlSearch {
     show: boolean;
     addState: (show: boolean) => void;
 }
-export const useControlSearch = create(persist<ControlSearch>((set, get) => ({
+export const useControlSearch = create(persist<ControlSearch>((set, _) => ({
     show: false,
     addState: (show: boolean = true) => {
         set({ show: show });

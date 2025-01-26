@@ -2,7 +2,7 @@
 
 import { font } from '@/config/font';
 import styles from './detail-produc.module.css';
-import { Product } from '@/interfaces';
+import { Product, ValidCategories } from '@/interfaces';
 import { replaceCharactersAndNumbers, transformAmount } from '@/helpers';
 import Button from '@/components/ui/button/Button';
 import Size from '@/components/ui/size/Size';
@@ -34,7 +34,9 @@ export const DetailProduct = ({product}: Props) => {
     findProduct ? updateQuantity(item) : addItem(product, item.quantity);
   }
 
-  const label = {
+  const category = replaceCharactersAndNumbers(product.category);
+
+  const label: Record<string, string> = {
     'electronics': 'Electrónica',
     'jewelery': 'Joyería',
     'mensclothing': 'Ropa de hombre',
@@ -100,7 +102,7 @@ export const DetailProduct = ({product}: Props) => {
         </div>
         <div className="info_data">
           <h2>SS001</h2>
-          <h2>{(label as any)[replaceCharactersAndNumbers(product.category)]}</h2>
+          <h2>{label[category]}</h2>
           <h2>Ropa, Tecnología, Ofertas</h2>
           <h2>Social media</h2>
         </div>
