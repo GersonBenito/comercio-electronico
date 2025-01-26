@@ -26,4 +26,4 @@ export * from './ui/search/Search';
 export * from './ui/skeleton/SkeletonProduct';
 export * from './ui/total/Total';
 export * from './ui/summary/Summary';
-// export * from './dynamic-component/dynamicComponent';
+export * from './ui/hamburger-menu/HamburgerMenu';

@@ -1,7 +1,8 @@
 import { font } from '@/config/font';
 import styles from './footer.module.css';
 import { getYear } from '@/helpers';
-import { Logo, Menu } from '@/components';
+import { Menu } from '@/components';
+import Logo from '@/components/ui/logo/Logo';
 import { LinkMenu } from '@/interfaces';
 import { MAIN_MENU, MENU_HELP } from '@/constants/menus';
 
