@@ -1,4 +1,4 @@
-import { Product, ValidCategories } from "@/interfaces";
+import { Product } from "@/interfaces";
 
 /**
  * Funcion para transformar un numero u monto en formato de moneda

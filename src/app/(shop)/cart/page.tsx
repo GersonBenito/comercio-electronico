@@ -14,9 +14,6 @@ export default async function Page({searchParams}:Props) {
     const search = await searchParams;
     const query = search?.query || '';
 
-    // En caso de contar con paginado se usara esta variable
-    const currentPage = Number(search?.page) || 1;
-
     const tableTitles = ['Producto', 'Precio', 'Cantidad', 'Subtotal'];
     return (
         <div className={`

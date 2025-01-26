@@ -37,7 +37,11 @@ const Button = ({
     <button 
       className={`${style.btn} ${typeButton} ${className}`}
       onClick={() =>{
-        onClick ? onClick() : handleRedirect()
+        if (onClick) {
+          onClick();
+        } else {
+          handleRedirect();
+        }
       }}
       disabled={disabled}
     >

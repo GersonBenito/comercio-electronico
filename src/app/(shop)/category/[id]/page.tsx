@@ -1,5 +1,4 @@
 import { ProductGrid, SkeletonProduct, Title } from "@/components";
-import { notFound } from "next/navigation";
 import styles from './category.module.css';
 import { font } from "@/config/font";
 import { replaceCharactersAndNumbers } from "@/helpers";
