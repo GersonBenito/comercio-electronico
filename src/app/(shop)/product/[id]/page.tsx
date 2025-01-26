@@ -7,9 +7,7 @@ import { getProductById } from "@/libs/api/products";
 import { Suspense } from "react";
 
 interface Props {
-    params: {
-        id: string;
-    },
+    params: Promise<{id: string;}>,
     searchParams?: Promise<{
         query?: string;
         page?: string;

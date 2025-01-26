@@ -5,9 +5,7 @@ import { replaceCharactersAndNumbers } from "@/helpers";
 import { Suspense } from "react";
 
 interface Props {
-    params: {
-        id: string;
-    },
+    params: Promise<{id: string;}>,
     searchParams?: Promise<{
         query?: string;
         page?: string;
