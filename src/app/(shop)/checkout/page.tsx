@@ -85,7 +85,8 @@ export default function Page() {
                                 label: 'Realizar pedido',
                                 type: "outline-secondary",
                                 isRedirect: true,
-                                link: '/checkout/successful-purchase'
+                                link: '/checkout/successful-purchase',
+                                callToAction: true
                             }}
                         />
                     </div>

@@ -7,9 +7,7 @@
 'use client';
 
 import dynamic from "next/dynamic";
-import { useDeviceDetection } from "@/hooks";
-// import { Form } from "@/components/ui/form/Form";
-import { } from '../ui/form/Form'
+import { useCart, useDeviceDetection } from "@/hooks";
 
 /**
  * Nota: En caso de querer ocupar este componente para renderizar
@@ -32,6 +30,7 @@ interface Props {
         className?: string;
         onClick?: () => void;
         disabled?: boolean;
+        callToAction?: boolean;
     }
 }
 
@@ -42,6 +41,8 @@ const componentsMap = {
 
 export default function ShowDynamicComponent({componentType = 'Button', isButton = false, props}: Props){
     const isMobile = useDeviceDetection();
+    const { removeAll } = useCart();
+
     // Verificar el tipo de dispositivo
     if (isMobile) {
         if(isButton){
@@ -56,6 +57,7 @@ export default function ShowDynamicComponent({componentType = 'Button', isButton
                     className={props?.className}
                     onClick={props?.onClick}
                     disabled={props?.disabled}
+                    callToAction={false}
                 />
             )
         }
@@ -76,8 +78,9 @@ export default function ShowDynamicComponent({componentType = 'Button', isButton
             link={props?.link}
             icon={props?.icon}
             className={props?.className}
-            onClick={props?.onClick}
+            onClick={() => removeAll(true)}
             disabled={props?.disabled}
+            callToAction={props?.callToAction}
         />
     );
 }

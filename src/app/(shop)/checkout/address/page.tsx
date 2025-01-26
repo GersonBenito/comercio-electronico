@@ -1,8 +1,12 @@
+'use client';
+
 import { Title } from "@/components";
 import Button from "@/components/ui/button/Button";
 import Form from "@/components/ui/form/Form";
+import { useCart } from "@/hooks";
 
 export default function Page() {
+    const { removeAll } = useCart();
     return (
         <div className="
             pr-3
@@ -40,6 +44,8 @@ export default function Page() {
                         type="outline-secondary"
                         isRedirect={true}
                         link="/checkout/successful-purchase"
+                        callToAction={true}
+                        onClick={() => removeAll(true)}
                     />
                 </div>
             </div>

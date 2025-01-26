@@ -12,6 +12,7 @@ interface Props {
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
+  callToAction?: boolean;
 }
 
 const Button = ({
@@ -22,7 +23,8 @@ const Button = ({
   icon, 
   className, 
   onClick,
-  disabled = false
+  disabled = false,
+  callToAction = false
 }: Props) => {
 
   const router = useRouter();
@@ -39,6 +41,9 @@ const Button = ({
       onClick={() =>{
         if (onClick) {
           onClick();
+          if(callToAction){
+            handleRedirect();
+          }
         } else {
           handleRedirect();
         }

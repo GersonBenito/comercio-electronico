@@ -9,7 +9,7 @@ interface CartStore {
     item: Product;
     addItem: (product: Product, quantity?: number) => void;
     removeItem: (id: number | string) => void;
-    removeAll: () => void;
+    removeAll: (isCheckout?: boolean) => void;
     addOnlyItem: (product: Product) => void;
     increaseQuantity: (increase: number) => void;
     subtractQuantity: (subtract: number) => void;
@@ -65,8 +65,17 @@ export const useCart = create(persist<CartStore>((set, get) => ({
             transition: 'popUp'
         });
     },
-    removeAll: () => {
+    removeAll: (isCheckout: boolean = false) => {
         set({items: []});
+        /**
+         * Mostrar la notificacion de productos removidos del carrito
+         * solo si el usuario no esta en la pantalla de checkout
+         * debido a que al realizar la compra todos los prodcutos del carrito
+         * se deben de remover de forma transparente
+         */
+        if(isCheckout){
+            return false;
+        }
         toast.warning('Productos eliminados del carrito 🗑️', {
             position: 'top-center',
             duration: 3000,
