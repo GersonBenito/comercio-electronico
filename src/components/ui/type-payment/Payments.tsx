@@ -25,7 +25,7 @@ const Payments = ({typesPaymentProcessors}:Props) => {
           onClick={() => setSelect(payment.brand) }
         >
           <Image 
-            src={`/assets/svg/${payment.brand}.svg`} 
+            src={`/assets/svg/${payment.icon}.svg`} 
             width={ 
               payment.brand.toUpperCase() === 'PAYPAL' ? 70 : 50
             } 
