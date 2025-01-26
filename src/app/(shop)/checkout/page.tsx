@@ -45,7 +45,20 @@ export default function() {
                 <ShowDynamicComponent 
                     componentType="Form" 
                     props={{
-                        className: 'col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 col-xxl-6'
+                        className: `
+                            d-sm-none 
+                            d-md-none 
+                            d-lg-block 
+                            d-xl-block 
+                            d-xxl-block 
+                            d-none
+                            col-12 
+                            col-sm-12 
+                            col-md-6 
+                            col-lg-5 
+                            col-xl-6 
+                            col-xxl-6
+                        `
                     }}
                 />
                 <div className={`

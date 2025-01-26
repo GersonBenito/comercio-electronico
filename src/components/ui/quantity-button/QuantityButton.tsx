@@ -13,7 +13,7 @@ interface Props {
 
 const QuantityButton = ({product}:Props) => {
 
-    const [counter, setCounter] = useState<number>(product.quantity || 1);
+    const [counter, setCounter] = useState<number>(product.quantity || 0);
     const { increaseQuantity, subtractQuantity } = useCart();
 
     const handlePlus = () => {

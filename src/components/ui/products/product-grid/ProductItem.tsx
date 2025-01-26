@@ -28,7 +28,7 @@ export const ProductItem = ({product}:Props) => {
   const handleAction = () => {
     const onlyProduct = {
       ...product,
-      quantity: items.find(item => item.id === product.id)?.quantity || 1
+      quantity: items.find(item => item.id === product.id)?.quantity || 0
     }
     addOnlyItem(onlyProduct);
   }

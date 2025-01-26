@@ -25,7 +25,13 @@ export const DetailProduct = ({product}: Props) => {
    */
   product = {
     ...product,
-    quantity: items.find(item => item.id === product.id)?.quantity || 1
+    quantity: items.find(item => item.id === product.id)?.quantity || 0
+  }
+
+  // Validar si este producto es totalmente nuevo o existente en el carrito
+  const validateQuantity = () => {
+    const findProduct = items.find(product => product.id === item.id);
+    findProduct ? updateQuantity(item) : addItem(product, item.quantity);
   }
 
   const label = {
@@ -74,7 +80,8 @@ export const DetailProduct = ({product}: Props) => {
         <Button 
           label="Agregar al carito" 
           type="outline-secondary" 
-          onClick={ () => updateQuantity(item) }
+          disabled={ item.quantity < 1 ? true : false }
+          onClick={ validateQuantity }
         />
         <Button label="Agregar a favorito" type="outline-secondary" />
       </div>

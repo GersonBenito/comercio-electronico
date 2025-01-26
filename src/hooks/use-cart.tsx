@@ -7,7 +7,7 @@ import "nextjs-toast-notify/dist/nextjs-toast-notify.css";
 interface CartStore {
     items: Product[];
     item: Product;
-    addItem: (product: Product) => void;
+    addItem: (product: Product, quantity?: number) => void;
     removeItem: (id: number | string) => void;
     removeAll: () => void;
     addOnlyItem: (product: Product) => void;
@@ -31,7 +31,7 @@ export const useCart = create(persist<CartStore>((set, get) => ({
         category: '',
         quantity: 0
     },
-    addItem: (product: Product) => {
+    addItem: (product: Product, quantity: number = 1) => {
         const currentItems = get().items;
         const existingItem = currentItems.find(item => item.id === product.id);
         // Verificar si existe el producto en el carrito
@@ -48,7 +48,7 @@ export const useCart = create(persist<CartStore>((set, get) => ({
                 transition: 'popUp'
             });;
         };
-        set({items: [...get().items, {...product, quantity: 1}]}); // agregar un nuevo producto al carrito
+        set({items: [...get().items, {...product, quantity: quantity}]}); // agregar un nuevo producto al carrito
         toast.success('Producto añadido al carrito 🛒', {
             position: 'top-center',
             duration: 3000,
