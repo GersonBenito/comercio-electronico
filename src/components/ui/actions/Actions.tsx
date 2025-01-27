@@ -58,16 +58,21 @@ const Actions = () => {
           onClick={ handleShowControl } 
         />
       }
-      <Link href="/wish">
-        <Image src="/assets/svg/wish.svg" alt="wish" width={20} height={20} />
-      </Link>
-      <Link href="/cart">
-        <div className={styles.counter}>
-          {(items.length >= 1) && <div className={styles.badge}>{items.length}</div>}
-          <Image src="/assets/svg/cart.svg" alt="cart" width={20} height={20} />
-        </div>
-      </Link>
-      <HamburgerMenu className="d-sm-block d-md-block d-lg-none d-xl-none d-xxl-none d-block" />
+      {
+        !show &&
+          <>
+            <Link href="/wish">
+              <Image src="/assets/svg/wish.svg" alt="wish" width={20} height={20} />
+            </Link>
+            <Link href="/cart">
+              <div className={styles.counter}>
+                {(items.length >= 1) && <div className={styles.badge}>{items.length}</div>}
+                <Image src="/assets/svg/cart.svg" alt="cart" width={20} height={20} />
+              </div>
+            </Link>
+            <HamburgerMenu className="d-sm-block d-md-block d-lg-none d-xl-none d-xxl-none d-block" />
+          </>
+      }
     </div>
   )
 }

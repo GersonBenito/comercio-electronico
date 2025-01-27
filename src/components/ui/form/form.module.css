@@ -29,6 +29,7 @@
     outline: none;
     border-radius: 5px;
     padding: 10px 8px;
+    font-size: 16px;
 }
 
 .wrapper_form form .form_control input:focus,
@@ -39,4 +40,17 @@
 .wrapper_form form .form_control input::placeholder,
 .wrapper_form form .form_control textarea::placeholder{
     color: #9F9F9F;
+}
+
+/* Remover clases por defectos para navegadores safari */
+.wrapper_form form .form_control select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Agregar icono personalizado para el select */
+.wrapper_form form .form_control select{
+    background: url('/assets/svg/arrow-select.svg') no-repeat right 10px center;
+    background-size: 12px 12px;
 }
