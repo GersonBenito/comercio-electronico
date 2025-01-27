@@ -54,3 +54,13 @@
     background: url('/assets/svg/arrow-select.svg') no-repeat right 10px center;
     background-size: 12px 12px;
 }
+
+.wrapper_form form .form_control span{
+    color: #d30d0d;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.error{
+    border: 1px solid #d30d0d !important;
+}

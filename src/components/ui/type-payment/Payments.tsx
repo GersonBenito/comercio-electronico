@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Payment } from '@/interfaces/type-pyment';
 import { obfuscateNumbers } from '@/helpers';
 import { useState } from 'react';
+import { useCheckout } from '@/hooks';
 
 interface Props {
   typesPaymentProcessors: Payment[]
@@ -13,6 +14,13 @@ interface Props {
 
 const Payments = ({typesPaymentProcessors}:Props) => {
   const [select, setSelect] = useState<string>('');
+  const { addItemPayment, validPayment } = useCheckout();
+  
+  const handleSelectProcessors = (processor: Payment) => {
+    setSelect(processor.brand);
+    addItemPayment(processor);
+    validPayment(true);
+  }
   return (
     <div className={`${font.className} ${styles.wrapper_payment}`}>
       {typesPaymentProcessors.map(payment =>(
@@ -22,7 +30,7 @@ const Payments = ({typesPaymentProcessors}:Props) => {
             ${styles.payment_content} 
             ${select.toUpperCase() === payment.brand.toUpperCase() ? styles.selected : ''}
           `}
-          onClick={() => setSelect(payment.brand) }
+          onClick={() => handleSelectProcessors(payment) }
         >
           <Image 
             src={`/assets/svg/${payment.icon}.svg`} 

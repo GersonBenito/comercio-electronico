@@ -13,6 +13,7 @@ interface Props {
   onClick?: () => void;
   disabled?: boolean;
   callToAction?: boolean;
+  typeActionButton?: 'button' | 'submit'; 
 }
 
 const Button = ({
@@ -24,7 +25,8 @@ const Button = ({
   className, 
   onClick,
   disabled = false,
-  callToAction = false
+  callToAction = false,
+  typeActionButton='button'
 }: Props) => {
 
   const router = useRouter();
@@ -37,6 +39,7 @@ const Button = ({
   const typeButton = style[type];
   return (
     <button 
+      type={typeActionButton}
       className={`${style.btn} ${typeButton} ${className}`}
       onClick={() =>{
         if (onClick) {

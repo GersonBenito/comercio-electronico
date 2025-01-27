@@ -1,12 +1,7 @@
-'use client';
-
 import { Title } from "@/components";
-import Button from "@/components/ui/button/Button";
 import Form from "@/components/ui/form/Form";
-import { useCart } from "@/hooks";
 
 export default function Page() {
-    const { removeAll } = useCart();
     return (
         <div className="
             pr-3
@@ -29,25 +24,8 @@ export default function Page() {
                 <Form 
                     classCenter="justify-content-center"
                     styleTitle="d-flex justify-content-center mt-4 mb-4"
+                    showButtonForm={true}
                 />
-                <div className="
-                    d-flex
-                    justify-content-end
-                    col-sm-12
-                    col-md-12
-                    col-lg-12
-                    col-xl-11
-                    col-xxl-11
-                ">
-                    <Button 
-                        label="Realizar pedido"
-                        type="outline-secondary"
-                        isRedirect={true}
-                        link="/checkout/successful-purchase"
-                        callToAction={true}
-                        onClick={() => removeAll(true)}
-                    />
-                </div>
             </div>
         </div>
     );

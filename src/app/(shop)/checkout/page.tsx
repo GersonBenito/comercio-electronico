@@ -1,9 +1,12 @@
+'use client';
+
 import { font } from "@/config/font";
 import styles from "./checkout.module.css";
 import { Summary, Title } from "@/components";
 import TypePayment from "@/components/ui/type-payment/TypePayment";
 import { complementData } from "@/libs/utils/complement-data";
 import ShowDynamicComponent from "@/components/dynamic-component/ShowDynamicComponent";
+import { useCheckout } from "@/hooks";
 
 
 /**
@@ -15,6 +18,7 @@ import ShowDynamicComponent from "@/components/dynamic-component/ShowDynamicComp
 const typePayments = complementData.typePayments;
 
 export default function Page() {
+    const { isValidForm, isValidTypePayment, isValidPayment } = useCheckout();
     return (
         <div className={`
             ${font.className} 
@@ -86,7 +90,8 @@ export default function Page() {
                                 type: "outline-secondary",
                                 isRedirect: true,
                                 link: '/checkout/successful-purchase',
-                                callToAction: true
+                                callToAction: true,
+                                disabled: !(isValidForm  && isValidTypePayment && isValidPayment)
                             }}
                         />
                     </div>

@@ -3,9 +3,10 @@
 import { font } from "@/config/font";
 import styles from "./type-payment.module.css";
 import { TypePayment as Payment} from "@/interfaces/type-pyment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Payments from "@/components/ui/type-payment/Payments";
 import { complementData } from "@/libs/utils/complement-data";
+import { useCheckout } from "@/hooks";
 
 interface Props {
   typePayments: Payment[]
@@ -22,10 +23,21 @@ const typesPaymentProcessors = complementData.typesPaymentProcessors;
 const TypePyment = ({typePayments}: Props) => {
   const [select, setSelect] = useState<number | string>(1);
   const [showCard, setShowCard] = useState<boolean>(true);
+  const { addItemTypePayment, validTypePayment } = useCheckout();
+
+  const type = typePayments.find(payment => payment.id === select);
+  
+  useEffect(() =>{
+    // Obtener el tipo de pago por defecto
+    addItemTypePayment(type || typePayments[0]);
+    validTypePayment(true);
+  },[])
 
   const handleSelect = (id: number | string) =>{
     setSelect(id);
     setShowCard(select === 2 ? true : false);
+    addItemTypePayment(type || typePayments[0]);
+    validTypePayment(true);
   }
 
   return (
