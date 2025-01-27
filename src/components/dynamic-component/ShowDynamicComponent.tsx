@@ -7,7 +7,7 @@
 'use client';
 
 import dynamic from "next/dynamic";
-import { useCart, useDeviceDetection } from "@/hooks";
+import { useCart, useCheckout, useDeviceDetection } from "@/hooks";
 
 /**
  * Nota: En caso de querer ocupar este componente para renderizar
@@ -42,6 +42,7 @@ const componentsMap = {
 export default function ShowDynamicComponent({componentType = 'Button', isButton = false, props}: Props){
     const isMobile = useDeviceDetection();
     const { removeAll } = useCart();
+    const { isValidTypePayment, isValidPayment } = useCheckout();
 
     // Verificar el tipo de dispositivo
     if (isMobile) {
@@ -56,7 +57,7 @@ export default function ShowDynamicComponent({componentType = 'Button', isButton
                     icon={props?.icon}
                     className={props?.className}
                     onClick={props?.onClick}
-                    disabled={props?.disabled}
+                    disabled={!(isValidTypePayment && isValidPayment)}
                     callToAction={false}
                 />
             )
