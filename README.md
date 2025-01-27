@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Comercio Electrónico
 
-## Getting Started
+Proyecto creado con [Next.js](https://nextjs.org) y [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-First, run the development server:
+## Comenzando
+
+Primero, clona el repositorio en caso de tenerlo clonado usando el siguiente comando:
+
+```bash
+git clone https://github.com/GersonBenito/comercio-electronico.git
+```
+
+Segundo, ingresa en el proyecto clonado y instala las dependencias de Node js usando el siguiente comando:
+
+```bash
+npm i
+# o
+npm install
+```
+
+Tercero, ejecuta el servidor de desarrollo usando el comando que se encuentra en el archivo ``package.json`` en el nodo de ``scripts``:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Abre http://localhost:3000 en tu navegador para ver el resultado.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Proyecto desplegado en [Vercel](https://vercel.com/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para visualizar el proyecto desplegado abre https://comercio-electronico-phi.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<img 
+  src="public/readme/demo-1.png" 
+  alt="demo-1" 
+  width="500"
+/>
+<img 
+  src="public/readme/demo-2.png" 
+  alt="demo-2" 
+  width="500"
+/>
+<img 
+  src="public/readme/demo-3.png" 
+  alt="demo-3" 
+  width="500"
+/>
 
-## Learn More
+## Tecnologias usados
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img 
+  src="https://images.ctfassets.net/c63hsprlvlya/IacLLeOBR5WCvdCPqKuff/a57a4dc79978ad9e141972054ce9f71e/nextjs3.webp" 
+  alt="Next.js" 
+  width="300"
+/>
+<img 
+  src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=400/uploads/users/1125/posts/30546/preview_image/RN.jpg" 
+  alt="React.js" 
+  width="300"
+/>
+<img 
+  src="https://raw.githubusercontent.com/pmndrs/zustand/HEAD/docs/bear.jpg" 
+  alt="zustand" 
+  width="300"
+/>
+<img 
+  src="https://miro.medium.com/v2/resize:fit:532/1*cNN7z6x6o08QKCdKg6BIvQ.png" 
+  alt="zod" 
+  width="300"
+/>
+<img 
+  src="https://miro.medium.com/v2/resize:fit:477/1*Wlnzy2dvgCiZ42qHHON1IQ.jpeg" 
+  alt="react hook form" 
+  width="300"
+/>
+<img 
+  src="https://ironpdf.com/static-assets/pdf/blog/toastify-npm/toastify-npm-1.webp" 
+  alt="nextjs-toast-notify" 
+  width="300"
+/>
+<img 
+  src="https://caraguna.com/wp-content/uploads/2022/02/typescript.png" 
+  alt="TypeScript" 
+  width="300"
+/>
