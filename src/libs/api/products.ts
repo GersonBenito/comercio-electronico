@@ -44,5 +44,6 @@ export const getProducts = async (endpoint: string): Promise<Product[]> => {
     const url = `${API_URL}/${endpoint}`; 
     // Uso de fetch nativo de JavaScript
     const response = await fetch(url, { cache: 'force-cache'});
+    console.log({response});
     return await response.json(); // convertir o parsear la data a json
 }
