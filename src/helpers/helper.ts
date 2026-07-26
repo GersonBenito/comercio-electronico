@@ -1,4 +1,4 @@
-import { Product } from "@/interfaces";
+import { ProductElement } from "@/interfaces";
 
 /**
  * Funcion para transformar un numero u monto en formato de moneda
@@ -43,7 +43,7 @@ export const replaceCharactersAndNumbers = (value: string): string => {
  * @param products lista de productos recibido
  * @returns lista de desordenada de productos
  */
-export const shuffleArray = (products: Product[]): Product[] =>{
+export const shuffleArray = (products: ProductElement[]): ProductElement[] =>{
     for(let i = products.length - 1; i > 0; i--){
         const j = Math.floor(Math.random() * (1 + 1));
         [products[i], products[j]] = [products[j], products[i]]; // intercambio de elementos en el arreglo
@@ -68,8 +68,8 @@ export const truncateToFixed = (number: number, decimals: number = 0): number =>
  * @param products lista de productos del cual se realizara la suma de los precios 
  * @returns precio toal de los productos del arreglo
  */
-export const getTotalPrice = (products: Product[]): number => {
-    return products.reduce((accumulator, product) => (accumulator + (product.price * product.quantity)), 0)
+export const getTotalPrice = (products: ProductElement[]): number => {
+    return products.reduce((accumulator, product) => (accumulator + (product.price * product.stock)), 0)
 };
 
 /**

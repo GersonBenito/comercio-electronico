@@ -26,12 +26,13 @@ export default async function Page({params, searchParams}: Props) {
     // Reeemplazar caracteres no pemitidos para poder mostrar la categoria como titulo
     const categoryId = replaceCharactersAndNumbers(id);
     
+    // TODO: Incorporating dynamic categories
     // Diccionario de catagorias para mostrarlo como titulo de la pantalla
     const label: Record<string, string> = {
-        'electronics': 'Electrónica',
-        'jewelery': 'Joyería',
-        'mensclothing': 'Ropa de hombre',
-        'womensclothing': 'Ropa de mujer',
+        'beauty': 'Belleza',
+        'fragrances': 'Perfumes',
+        'laptops': 'Laptops',
+        'smartphones': 'Smartphones',
     }
 
     // TODO: agregar

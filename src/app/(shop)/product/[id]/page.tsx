@@ -61,10 +61,9 @@ export default async function Page({params, searchParams}: Props) {
                 <Title title="Productos relacionados" className="align-center mb-2" />
                 <Suspense key={query + currentPage} fallback={<SkeletonProduct />} >
                     <ProductGrid 
-                        endpint={`products/category/${product.category}`} 
+                        endpint={`products/category/${product.category}?limit=4`} 
                         query={query}
-                        className="mb-4" 
-                        sort={true}
+                        className="mb-4"
                     />
                 </Suspense>
                 <div className="align-center mt-3 mb-1">

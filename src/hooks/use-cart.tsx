@@ -1,19 +1,19 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
-import { Product } from "@/interfaces";
+import { AvailabilityStatus, ProductCategory, ProductElement, ReturnPolicy } from "@/interfaces";
 import { toast } from "nextjs-toast-notify";
 import "nextjs-toast-notify/dist/nextjs-toast-notify.css";
 
 interface CartStore {
-    items: Product[];
-    item: Product;
-    addItem: (product: Product, quantity?: number) => void;
+    items: ProductElement[];
+    item: ProductElement;
+    addItem: (product: ProductElement, stock?: number) => void;
     removeItem: (id: number | string) => void;
     removeAll: (isCheckout?: boolean) => void;
-    addOnlyItem: (product: Product) => void;
+    addOnlyItem: (product: ProductElement) => void;
     increaseQuantity: (increase: number) => void;
     subtractQuantity: (subtract: number) => void;
-    updateQuantity: (product: Product) => void;
+    updateQuantity: (product: ProductElement) => void;
 }
 
 export const useCart = create(persist<CartStore>((set, get) => ({
@@ -22,16 +22,36 @@ export const useCart = create(persist<CartStore>((set, get) => ({
         id: 0,
         title: '',
         description: '',
-        image: '',
+        category: ProductCategory.Beauty,
         price: 0,
-        rating: {
-            count: 0,
-            rate: 0
+        discountPercentage: 0,
+        rating: 0,
+        stock: 0,
+        tags: [],
+        brand: '',
+        sku: '',
+        weight: 0,
+        dimensions: {
+            width: 0,
+            height: 0,
+            depth: 0
         },
-        category: '',
-        quantity: 0
+        warrantyInformation: '',
+        shippingInformation: '',
+        availabilityStatus: AvailabilityStatus.InStock,
+        reviews: [],
+        returnPolicy: ReturnPolicy.NoReturnPolicy,
+        minimumOrderQuantity: 0,
+        meta: {
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            barcode: '',
+            qrCode: ''
+        },
+        images: [],
+        thumbnail: ''
     },
-    addItem: (product: Product, quantity: number = 1) => {
+    addItem: (product: ProductElement, stock: number = 1) => {
         const currentItems = get().items;
         const existingItem = currentItems.find(item => item.id === product.id);
         // Verificar si existe el producto en el carrito
@@ -39,7 +59,7 @@ export const useCart = create(persist<CartStore>((set, get) => ({
             set({items: [
                     ...get().items.map(item => ({
                             ...item,
-                            quantity: item.id === product.id ? item?.quantity + 1 : item.quantity
+                            quantity: item.id === product.id ? item?.stock + 1 : item.stock
                         }))
                     ]}); // incrementar la cantidad de productos y no agregar uno nuevo al carrito
             return toast.info('Cantidad actualizada en el carrito 🛒', {
@@ -48,7 +68,7 @@ export const useCart = create(persist<CartStore>((set, get) => ({
                 transition: 'popUp'
             });;
         };
-        set({items: [...get().items, {...product, quantity: quantity}]}); // agregar un nuevo producto al carrito
+        set({items: [...get().items, {...product, stock: stock}]}); // agregar un nuevo producto al carrito
         toast.success('Producto añadido al carrito 🛒', {
             position: 'top-center',
             duration: 3000,
@@ -82,20 +102,20 @@ export const useCart = create(persist<CartStore>((set, get) => ({
             transition: 'popUp'
         });
     },
-    addOnlyItem: (product: Product) => {
+    addOnlyItem: (product: ProductElement) => {
         set({item: product});
     },
     increaseQuantity: (increase: number) => {
-        set({item: {...get().item, quantity: get().item.quantity + increase}});
+        set({item: {...get().item, stock: get().item.stock + increase}});
     },
     subtractQuantity: (subtract: number) => {
-        set({item: {...get().item, quantity: get().item.quantity - subtract}});
+        set({item: {...get().item, stock: get().item.stock - subtract}});
     },
-    updateQuantity: (product: Product) => {
+    updateQuantity: (product: ProductElement) => {
         set({items: [
             ...get().items.map(item => ({
                     ...item,
-                    quantity: item.id === product.id ? product?.quantity : item.quantity
+                    stock: item.id === product.id ? product?.stock : item.stock
                 }))
             ]}); // Actualizar la cantidad unicamente producto sin modificar algun otro estado
         return toast.info('Cantidad actualizada en el carrito 🛒', {

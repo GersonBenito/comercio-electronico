@@ -1,12 +1,13 @@
 import { LinkMenu } from "@/interfaces";
 
+// TODO: Seperating main manu to include every single category from API
 export const MAIN_MENU: LinkMenu[] = [
     { label: 'Inicio', url: '/' },
     { label: 'Tienda', url: '/products' },
-    { label: 'Electrónica', url: '/category/electronics' },
-    { label: 'Joyería', url: '/category/jewelery' },
-    { label: 'Ropa de hombre', url: '/category/men\'s clothing' },
-    { label: 'Ropa de mujer', url: '/category/women\'s clothing' },
+    { label: 'Belleza', url: '/category/beauty' },
+    { label: 'Perfumes', url: '/category/fragrances' },
+    { label: 'Laptops', url: '/category/laptops' },
+    { label: 'Smartphones', url: '/category/smartphones' },
 ];
 
 export const MENU_HELP: LinkMenu[] = [

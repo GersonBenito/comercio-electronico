@@ -1,4 +1,4 @@
-import { Product } from "@/interfaces";
+import { ProductElement } from "@/interfaces";
 
 /**
  * Funcion para buscar productos por titulo, descripcion y precio
@@ -6,7 +6,7 @@ import { Product } from "@/interfaces";
  * @param searchText termino con el cual se realizara la busqueda
  * @returns nueva lista de productos que coincidan con el termino de busqueda
  */
-export const searchProducts = (products: Product[] = [], searchText = '') => {
+export const searchProducts = (products: ProductElement[] = [], searchText = '') => {
     return products.filter(product => product?.title?.toLowerCase().includes(searchText.toLowerCase()) 
         || product?.description?.toLowerCase().includes(searchText.toLowerCase())
         || product?.price?.toString().includes(searchText.toLowerCase()));
