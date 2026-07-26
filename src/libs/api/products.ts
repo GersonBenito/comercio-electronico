@@ -1,4 +1,4 @@
-import { Product } from "@/interfaces";
+import { Product, ProductElement } from "@/interfaces";
 
 /**
  *  Tipos de cache en Next
@@ -13,7 +13,7 @@ const API_URL = process.env.API_URL; // obtener la url base de las variables de 
  * @param id del producto a obtener
  * @returns Promesa con un solo producto
  */
-export const getProductById = async (id: string | number): Promise<Product> => {
+export const getProductById = async (id: string | number): Promise<ProductElement> => {
     const url = `${API_URL}/products/${id}`;
     // cambiamos a cache: 'no-store' debido a que el producto sera dinamico
     // de acorde al numero de id
@@ -36,7 +36,7 @@ export const getAllCategories = async (): Promise<string[]> => {
  * @param endpoint al que se necesita consumir, ejemplo: products/category
  * @returns lista de productos del servicio
  */
-export const getProducts = async (endpoint: string): Promise<Product[]> => {
+export const getProducts = async (endpoint: string): Promise<Product> => {
     // En caso de querer probar los Suspense de react descomentar esta linea de abajo
     // await new Promise((resolve)=> setTimeout(resolve, 5000))
 
@@ -44,6 +44,5 @@ export const getProducts = async (endpoint: string): Promise<Product[]> => {
     const url = `${API_URL}/${endpoint}`; 
     // Uso de fetch nativo de JavaScript
     const response = await fetch(url, { cache: 'force-cache'});
-    console.log({response});
     return await response.json(); // convertir o parsear la data a json
 }

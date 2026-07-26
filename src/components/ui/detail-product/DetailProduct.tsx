@@ -2,7 +2,7 @@
 
 import { font } from '@/config/font';
 import styles from './detail-produc.module.css';
-import { Product } from '@/interfaces';
+import { ProductElement } from '@/interfaces';
 import { replaceCharactersAndNumbers, transformAmount } from '@/helpers';
 import Button from '@/components/ui/button/Button';
 import Size from '@/components/ui/size/Size';
@@ -12,7 +12,7 @@ import Rating from '@/components/ui/rating/Rating';
 import { useCart } from '@/hooks';
 
 interface Props {
-  product: Product;
+  product: ProductElement;
 }
 
 export const DetailProduct = ({product}: Props) => {
@@ -25,7 +25,7 @@ export const DetailProduct = ({product}: Props) => {
    */
   product = {
     ...product,
-    quantity: items.find(item => item.id === product.id)?.quantity || 0
+    stock: items.find(item => item.id === product.id)?.stock || 0
   }
 
   // Validar si este producto es totalmente nuevo o existente en el carrito
@@ -34,7 +34,7 @@ export const DetailProduct = ({product}: Props) => {
     if(findProduct){
       updateQuantity(item);
     }else{
-      addItem(product, item.quantity);
+      addItem(product, item.stock);
     };
   }
 
@@ -70,9 +70,9 @@ export const DetailProduct = ({product}: Props) => {
       <h2 className="mb-1">{transformAmount(product.price)}</h2>
       <div className={`${styles.rating} mb-1`}>
         <div className={`${styles.stars}`}>
-          <Rating count={product.rating.rate} />
+          <Rating count={product.rating} />
         </div> | 
-        <p className={`${styles.counter}`}>{product.rating.count} Opinión de cliente</p>
+        <p className={`${styles.counter}`}>{product.reviews.length} Opinión de cliente</p>
       </div>
       <p className="regular-body mb-3">{product.description}</p>
       {/* size */}
@@ -86,7 +86,7 @@ export const DetailProduct = ({product}: Props) => {
         <Button 
           label="Agregar al carito" 
           type="outline-secondary" 
-          disabled={ item.quantity < 1 ? true : false }
+          disabled={ item.stock < 1 ? true : false }
           onClick={ validateQuantity }
         />
         <Button label="Agregar a favorito" type="outline-secondary" />

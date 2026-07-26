@@ -1,7 +1,7 @@
 // Componente de lado del cliente
 'use client';
 
-import { Product } from "@/interfaces"
+import { ProductElement } from "@/interfaces"
 import styles from './product-grid.module.css';
 import Image from "next/image";
 import { transformAmount } from "@/helpers";
@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useCart } from "@/hooks";
 
 interface Props {
-  product: Product;
+  product: ProductElement;
 }
 
 export const ProductItem = ({product}:Props) => {
@@ -28,7 +28,7 @@ export const ProductItem = ({product}:Props) => {
   const handleAction = () => {
     const onlyProduct = {
       ...product,
-      quantity: items.find(item => item.id === product.id)?.quantity || 0
+      stock: items.find(item => item.id === product.id)?.stock || 0
     }
     addOnlyItem(onlyProduct);
   }
@@ -41,7 +41,7 @@ export const ProductItem = ({product}:Props) => {
     >
       <div className={styles.product_image}>
         <Image 
-          src={product.image}
+          src={product.thumbnail}
           alt={product.title}
           width={200}
           height={230}

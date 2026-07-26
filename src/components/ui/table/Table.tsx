@@ -7,7 +7,7 @@ import styles from "./table.module.css";
 import { useCart } from "@/hooks";
 import { searchProducts } from "@/helpers/search";
 import Link from "next/link";
-import { Product } from "@/interfaces";
+import { ProductElement } from "@/interfaces";
 
 interface Props {
     titles: string[]
@@ -24,10 +24,10 @@ export const Table = ({ titles, query, className }: Props) => {
    *  Verificar si este producto ya se encuentra en el carrito
       para poder incrementarle la cantidad en el control
    */
-    const handleAction = (product: Product) => {
+    const handleAction = (product: ProductElement) => {
         const onlyProduct = {
         ...product,
-        quantity: items.find(item => item.id === product.id)?.quantity || 1
+        stock: items.find(item => item.id === product.id)?.stock || 1
         }
         addOnlyItem(onlyProduct);
     }
@@ -55,7 +55,7 @@ export const Table = ({ titles, query, className }: Props) => {
                                 <Link href={`/product/${product.id}`} onClick={ () => handleAction(product) }>
                                     <div className={`${styles.custom_content}`}>
                                         <CardImage
-                                            image={product.image}
+                                            image={product.thumbnail}
                                             title={product.title}
                                             width={50}
                                             height={50}
@@ -73,7 +73,7 @@ export const Table = ({ titles, query, className }: Props) => {
                             </td>
                             <td style={{ width: '15%' }} className="align-start pl-1">
                                 <div className={`${styles.custom_content}`} style={{ color: '#000' }}>
-                                    {product.quantity}
+                                    {product.stock}
                                 </div>
                             </td>
                             <td style={{ width: '25%' }} className="align-start pl-1">
@@ -84,7 +84,7 @@ export const Table = ({ titles, query, className }: Props) => {
                                         justifyContent: 'space-between'
                                     }}
                                 >
-                                    {transformAmount(product.price * product.quantity)}
+                                    {transformAmount(product.price * product.stock)}
                                     <span className="pr-1" style={{cursor: 'pointer'}}>
                                         <Image 
                                             src="/assets/svg/trash.svg" 

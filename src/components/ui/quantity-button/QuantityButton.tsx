@@ -5,15 +5,15 @@ import styles from './quantity-button.module.css';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useCart } from '@/hooks';
-import { Product } from '@/interfaces';
+import { ProductElement } from '@/interfaces';
 
 interface Props {
-    product: Product;
+    product: ProductElement;
 }
 
 const QuantityButton = ({product}:Props) => {
 
-    const [counter, setCounter] = useState<number>(product.quantity || 0);
+    const [counter, setCounter] = useState<number>(product.stock || 0);
     const { increaseQuantity, subtractQuantity } = useCart();
 
     const handlePlus = () => {
