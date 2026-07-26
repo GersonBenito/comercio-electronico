@@ -15,6 +15,8 @@ interface Props {
 export const ProductGrid = async ({endpint, query, className, sort}:Props) => {
   // Obtener los productos en base al endpoint
   let products = await getProducts(endpint);
+  console.log({products});
+  
   if(sort){
     // Desordenar los productos para mostrarlos de forma aleatoria
     const productsRaw = products;
