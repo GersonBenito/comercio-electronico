@@ -18,6 +18,7 @@ export default async function Page({searchParams}: Props) {
     // En caso de contar con paginado se usara esta variable
     const currentPage = Number(search?.page) || 1;
 
+    // TODO: Including paginator
     return (
         <div className={`${font.className} ${styles.products_wrapper}`}>
             <Title title="Tienda" className="align-center mt-2 mb-4"/>
