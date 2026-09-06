@@ -1,5 +1,6 @@
 export * from './ui/not-found/PageNotFound';
 export * from './ui/menu/Menu';
+export * from './ui/dropdown/Dropdown';
 export * from './ui/logo/Logo';
 export * from './ui/navbar/Navbar';
 export * from './ui/actions/Actions';
