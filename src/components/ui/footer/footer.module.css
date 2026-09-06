@@ -5,15 +5,9 @@
 }
 
 .wrapper_footer .content_footer{
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; */
     gap: 16px;
     margin: 32px 0px;
 }
-
-/* .wrapper_footer .content_footer .section_information p{
-    margin-top: 40px;
-} */
 
 .wrapper_footer .rights{
     padding: 24px 0px;
@@ -35,6 +29,23 @@
 
 .wrapper_footer .section_information p {
     color: #9F9F9F;
+}
+
+.category_group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.category_group p {
+    color: #9F9F9F;
+    font-weight: 500;
+    margin: 0;
+}
+
+.footer_dropdown {
+    width: fit-content;
 }
 
 .rights span {

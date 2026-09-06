@@ -10,6 +10,7 @@
     border-radius: 5px;
     cursor: pointer;
     position: relative;
+    overflow: hidden;
 }
 
 .content_product .product_image{
@@ -45,39 +46,42 @@
     letter-spacing: 0.1px;
 }
 
-.show_hover{
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.35);
+.show_hover,
+.hidden_hover{
+    position: absolute;
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: absolute;
-    top: 0;
     border-radius: 5px;
     z-index: 1;
     cursor: initial;
+    transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
-.show_hover::before{
+.show_hover {
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.show_hover::before,
+.hidden_hover::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0, 0, 0, 0.35);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    top: 0;
     border-radius: 5px;
     z-index: -1;
-    cursor: initial;
 }
 
-.hidden_hover{
-    display: none;
+.hidden_hover {
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
 }
 
 .section_actions{
@@ -90,12 +94,18 @@
     font-size: 12px;
     letter-spacing: 0.1px;
     color: #FFFF;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .text_icon a{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4;
+    gap: 4px;
+    transition: transform 0.2s ease;
+}
+
+.text_icon a:hover{
+    transform: translateY(-1px);
 }
 

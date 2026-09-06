@@ -3,12 +3,14 @@ import styles from './footer.module.css';
 import { getYear } from '@/helpers';
 import { Menu } from '@/components';
 import Logo from '@/components/ui/logo/Logo';
+import { Dropdown } from '@/components/ui/dropdown/Dropdown';
 import { LinkMenu } from '@/interfaces';
-import { MAIN_MENU, MENU_HELP } from '@/constants/menus';
+import { CATEGORY_MENU, MAIN_MENU, MENU_HELP } from '@/constants/menus';
 
 export const Footer = () => {
   const links: LinkMenu[] = MAIN_MENU;
   const linksHelp: LinkMenu[] = MENU_HELP;
+
   return (
     <footer className={`
       ${font.className}
@@ -76,7 +78,15 @@ export const Footer = () => {
           col-xl-3
           col-xxl-3
         ">
-          newsletter
+          <div className={styles.category_group}>
+            <p>Categorías</p>
+            <Dropdown
+              label="Categorías"
+              items={CATEGORY_MENU}
+              className={styles.footer_dropdown}
+              align="right"
+            />
+          </div>
         </div>
       </div>
       <div className={`
