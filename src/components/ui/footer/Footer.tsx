@@ -9,7 +9,7 @@ import { CATEGORY_MENU, MAIN_MENU, MENU_HELP } from '@/constants/menus';
 
 export const Footer = () => {
   const links: LinkMenu[] = MAIN_MENU;
-  const linksHelp: LinkMenu[] = MENU_HELP;
+  const linksHelp: LinkMenu[] = MENU_HELP.slice(0, 3);
 
   return (
     <footer className={`
@@ -46,6 +46,7 @@ export const Footer = () => {
           align-items-md-baseline 
           align-items-lg-baseline 
           align-items-xl-baseline 
+          align-items-xxl-baseline 
           gap-3
         `}>
           <Logo />
